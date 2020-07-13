@@ -8,24 +8,16 @@ int main()
 	int n, m;
 	cin >> n >> m;
 
-	if (n < m)
+	cout << n + m - 1 << endl;
+
+	for (int j = 1; j <= m; j++)
 	{
-		for (int i = 1; i <= n; i++)
-		{
-			for (int j = i; j <= m; j++)
-				cout << i << " " << j << endl;
-		} 
+		cout << "1 " << j << endl;
 	}
 
-	else 
+	for (int i = 2; i <= n; i++)
 	{
-		cout << n * m - 1<< endl;
-
-		for (int i = 1; i <= n; i++)
-		{
-			for (int j = i; j <= m; j++)
-				cout << i << " " << j << endl;
-		}
+		cout << i << " 1"  << endl; 
 	}
 
 	return 0;
