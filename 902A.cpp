@@ -1,4 +1,5 @@
 #include <iostream>
+#include <set>
 
 using namespace std;
 
@@ -7,29 +8,26 @@ int main()
 	int n, m;
 	cin >> n >> m;
 
-	int a[n] = { 0 }, b[n] = { 0 };
-
-	int min = 1;
-	int max = 0;
+	set<int> maps;
 
 	for (int i = 0; i < n; ++i)
 	{
-		cin >> a[i] >> b[i];
+		int x, y;
+		cin >> x >> y;
 
-		if (a[i] < min)
-			min = a[i];
-
-		if (b[i] > max)
-			max = b[i];
-
-		if (a[i] > b[i - 1] && i - 1 >= 0)
-		{
-			cout << "NO\n";
-			return 0;
-		}
+		for (int j = x + 1; j <= y; j++)
+			maps.insert(j);
 	}
 
-	(min == 0 && max == m) ? cout << "YES\n" : cout << "NO\n";
+	int flag = 1;
+	for (int i = 1; i <= m; i++)
+	{
+		if (maps.find(i) == maps.end())
+			flag = 0;
+	}
+
+	(flag == 1) ? cout << "YES\n" : cout << "NO\n";
 
 	return 0;
 }
+	

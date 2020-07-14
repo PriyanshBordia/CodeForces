@@ -9,24 +9,33 @@ int main()
 	int n;
 	cin >> n;
 
-	list<int> cafes;
+	int k = 200001;
+	int a[k];
 
-	for (int i = 0; i < n; i++)
+	for (int i = 0; i <= k; i++)
+		a[i] = -1;
+
+	for (int i = 1; i <= n; i++)
 	{ 
 		int x;
 		cin >> x;
 
-		if (find(cafes.begin(), cafes.end(), x) == cafes.end())
-			cafes.push_back(x);
+		a[x] = i;
+	}
 
-		else
-		{
-			cafes.remove(x);
-			cafes.push_back(x);
+	int ans = 0;
+	int min = k;
+
+	for (int i = 0; i <= k; i++)
+	{
+		if (a[i] != -1 && a[i] < min)
+		{	
+			min = a[i];
+			ans = i;
 		}
 	}
 
-	cout << cafes.front() << endl;
+	cout << ans << endl;
 
 	return 0;
 }

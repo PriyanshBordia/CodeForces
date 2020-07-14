@@ -25,15 +25,14 @@ int main()
 	{
 		string t = s.substr(i, k);
 
-		v1.append(t);
-		
+		v1.push_back(t);	
 	}
 
 	for (int i = 1; i < n; i += 2)
 	{
 		string r = s.substr(i, k);
 
-
+		v2.push_back(r);
 	}
 	
 	return 0;

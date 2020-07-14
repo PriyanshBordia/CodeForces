@@ -12,7 +12,7 @@ int main()
 
 	signed long long int n = 0;
 	
-	for (int i = k - 1; i >= 0; i--)
+	for (int i = k - 1; i > 0; i--)
 	{
 		ll a;
 		cin >> a;
@@ -22,6 +22,13 @@ int main()
 
 		n %= 2;
 	}
+
+	ll x;
+	cin >> x;
+
+	n += x;
+
+	n %= 2;
 
 	(n == 1) ? cout << "odd\n" : cout << "even\n";
 
