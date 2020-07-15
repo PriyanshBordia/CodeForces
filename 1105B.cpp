@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstring>
-#include <vector>
+#include <math.h>
+#include <algorithm>
 
 typedef long long ll;
 
@@ -14,26 +15,43 @@ using namespace std;
 
 int main()
 {
+
+	int stack[200001];
+	int top = 0;
+
 	int n, k;
 	sc(n)
 	sc(k)
 
-	vector<string> v1;
-	vector<string> v2;
+	string s;
+	cin >> s;
 
-	for (int i = 0; i < n; i += 2)
+	int i = 0;
+	while (i < n)
 	{
-		string t = s.substr(i, k);
-
-		v1.push_back(t);	
+		while ()
 	}
 
-	for (int i = 1; i < n; i += 2)
+	for (int i = 0; i < n; i++)
 	{
-		string r = s.substr(i, k);
+		int a[26] = { 0 };
 
-		v2.push_back(r);
+		for (int j = i; j < n - k; j += k)
+		{			
+			string t = s.substr(j, k);
+
+			if (count(t.begin(), t.end(), t[0]) == t.size())
+				a[t[0] - 'a']++;
+		}
+
+		stack[top++] = *max_element(a, a + n); 
+
+		// cout << stack[top - 1] << endl;
 	}
+
+	int ans = *max_element(stack, stack + top);
+
+	cout << ans << endl;
 	
 	return 0;
 }
