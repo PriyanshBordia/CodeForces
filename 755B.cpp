@@ -33,15 +33,11 @@ int main()
 
 	int diff = v.size();
 
-<<<<<<< Updated upstream
 	if (n == m)
 		(diff > 0) ? cout << "YES\n" : cout << "NO\n";
 
 	else
 		(n > m)? cout << "YES\n" : cout << "NO\n";
-=======
-	(diff > 0) ? cout << "YES\n" : cout << "NO\n";
->>>>>>> Stashed changes
 
 	return 0;
 }
