@@ -2,7 +2,6 @@
 #include <cstring>
 #include <set>
 #include <algorithm>
-#include <numeric>
 
 using namespace std;
 
@@ -24,9 +23,13 @@ int main()
 
 	set<string> v;
 
-	iterator diff = set_difference(p, p + n, e, e + m, v.begin());
+	set_difference(p, p + n, e, e + m, v.begin());
 	
-	(diff >= 0) ? cout << "YES\n" : cout << "NO\n";
+	if (n == m)
+		(v.size() >= 0) ? cout << "YES\n" : cout << "NO\n";
+
+	else
+		(n > m)? cout << "YES\n" : cout << "NO\n";
 
 	return 0;
 }
