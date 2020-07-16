@@ -10,16 +10,22 @@ int main()
 	int n, m;
 	cin >> n >> m;
 
-	string p[n];
-	string e[m];
+	set<string> p;
+	set<string> e;
 
-	for (int i = 0; i < n; i++){ cin >> p[i]; }
+	for (int i = 0; i < n; i++){ string s; cin >> s; p.insert(s); }
 
-	for (int i = 0; i < m; ++i){ cin >> e[i]; }
+	for (int i = 0; i < m; ++i){ string t; cin >> t; e.insert(t); }
 
+	if (n == 1 && m == 1)
+	{
+		if ((*p.begin()).compare(*e.begin()) == 0)
+			cout << "YES\n";
+		else
+			cout << "NO\n";
 
-	sort(p, p + n);
-	sort(e, e + m);
+		return 0;
+	}
 
 	set<string> v;
 
