@@ -29,10 +29,12 @@ int main()
 
 	set<string> v;
 
-	set_difference(p, p + n, e, e + m, v.begin());
-	
+	set_difference(p.begin(), p.end(), e.begin(), e.end(), inserter(v, v.begin()));
+
+	int diff = v.size();
+
 	if (n == m)
-		(v.size() >= 0) ? cout << "YES\n" : cout << "NO\n";
+		(diff > 0) ? cout << "YES\n" : cout << "NO\n";
 
 	else
 		(n > m)? cout << "YES\n" : cout << "NO\n";
