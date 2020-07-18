@@ -10,34 +10,25 @@ int main()
 	int n, m;
 	cin >> n >> m;
 
-	set<string> p;
+	string p[n];
 	set<string> e;
 
-	for (int i = 0; i < n; i++){ string s; cin >> s; p.insert(s); }
+	for (int i = 0; i < n; i++){ string s; cin >> s; p[i] = s; }
+	for (int i = 0; i < m; i++){ string t; cin >> t; e.insert(t); }
 
-	for (int i = 0; i < m; ++i){ string t; cin >> t; e.insert(t); }
-
-	if (n == 1 && m == 1)
+	int count = 0;
+	for (int i = 0; i < n; i++)
 	{
-		if ((*p.begin()).compare(*e.begin()) == 0)
-			cout << "YES\n";
-		else
-			cout << "NO\n";
-
-		return 0;
+		if (e.find(p[i]) != e.end())
+			count++;
 	}
 
-	set<string> v;
+	// if (n <= m)
+		(count % 2 == 0 && (n - count) < (m - count))? cout << "NO\n" : cout << "YES\n";
 
-	set_difference(p.begin(), p.end(), e.begin(), e.end(), inserter(v, v.begin()));
+	// else
+	// 	cout << "YES\n";
 
-	int diff = v.size();
-
-	if (n == m)
-		(diff > 0) ? cout << "YES\n" : cout << "NO\n";
-
-	else
-		(n > m)? cout << "YES\n" : cout << "NO\n";
 
 	return 0;
 }

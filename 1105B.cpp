@@ -26,32 +26,50 @@ int main()
 	string s;
 	cin >> s;
 
-	int i = 0;
-	while (i < n)
+	long max(0);
+	for (char c = 'a'; c <= 'z'; c++)
 	{
-		while ()
-	}
+		int let(0), cnt(0);
 
-	for (int i = 0; i < n; i++)
-	{
-		int a[26] = { 0 };
-
-		for (int j = i; j < n - k; j += k)
-		{			
-			string t = s.substr(j, k);
-
-			if (count(t.begin(), t.end(), t[0]) == t.size())
-				a[t[0] - 'a']++;
+		for (int i = 0; i < n; i++)
+		{
+			if (s[i] != c)
+				let = 0;
+			else
+			{
+				let++;
+				
+				if (let >= k)
+				{
+					cnt++;
+					let = 0;
+				}
+			}
 		}
 
-		stack[top++] = *max_element(a, a + n); 
-
-		// cout << stack[top - 1] << endl;
+		max = (cnt < max) ? max : cnt;
 	}
 
-	int ans = *max_element(stack, stack + top);
+	// for (int i = 0; i < n; i++)
+	// {
+	// 	int a[26] = { 0 };
 
-	cout << ans << endl;
+	// 	for (int j = i; j < n - k; j += k)
+	// 	{			
+	// 		string t = s.substr(j, k);
+
+	// 		if (count(t.begin(), t.end(), t[0]) == t.size())
+	// 			a[t[0] - 'a']++;
+	// 	}
+
+	// 	stack[top++] = *max_element(a, a + n); 
+
+	// 	// cout << stack[top - 1] << endl;
+	// }
+
+	// int ans = *max_element(stack, stack + top);
+
+	cout << max << endl;
 	
 	return 0;
 }
