@@ -3,6 +3,14 @@
 #include <math.h>
 #include <algorithm>
 
+typedef long long ll;
+
+#define scll(x) scanf("%lld", &x);
+#define pfll(x) printf("%lld\n", x);
+
+#define yes printf("YES\n");
+#define no printf("NO\n");
+
 using namespace std;
 
 int main()
