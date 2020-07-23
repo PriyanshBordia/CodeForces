@@ -62,5 +62,6 @@ int main()
 
 	printf("%.9f\n", ans);
 
+
 	return 0;
 }
