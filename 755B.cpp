@@ -1,7 +1,9 @@
 #include <iostream>
 #include <cstring>
 #include <set>
-#include <algorithm>
+
+#define yes printf("YES\n")
+#define no printf("NO\n")
 
 using namespace std;
 
@@ -10,25 +12,18 @@ int main()
 	int n, m;
 	cin >> n >> m;
 
-	string p[n];
-	set<string> e;
+	set<string> diff;
 
-	for (int i = 0; i < n; i++){ string s; cin >> s; p[i] = s; }
-	for (int i = 0; i < m; i++){ string t; cin >> t; e.insert(t); }
+	for (int i = 0; i < n + m; i++){ string s; cin >> s; diff.insert(s); }
 
-	int count = 0;
-	for (int i = 0; i < n; i++)
-	{
-		if (e.find(p[i]) != e.end())
-			count++;
-	}
+	if (n > m)
+		yes;
 
-	// if (n <= m)
-		(count % 2 == 0 && (n - count) < (m - count))? cout << "NO\n" : cout << "YES\n";
+	else if (n == m)
+		(diff.size() % 2 == 1) ? yes : no;
 
-	// else
-	// 	cout << "YES\n";
-
+	else 
+		no;
 
 	return 0;
 }

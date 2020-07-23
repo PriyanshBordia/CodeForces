@@ -1,13 +1,7 @@
 #include <iostream>
 #include <cstring>
 
-#define LPAR '('
-#define RPAR ')'
-
 using namespace std;
-
-char stack[50];
-int top = 0;
 
 int main()
 {

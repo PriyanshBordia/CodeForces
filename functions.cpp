@@ -1,8 +1,17 @@
 	int a[n];
-	for (int i = 0; i < n; i++){ sc(a[i]); }
+	for (int i = 0; i < n; i++){ sci(a[i]); }
 
-	for (int i = 0; i < n; i++){ pf(a[i]); }
+	for (int i = 0; i < n; i++){ pfi(a[i]); }
 
+void print(int arr[], int size)
+{
+	for (int i = 0; i < size; ++i)
+	{
+		pfi(arr[i]);
+	}
+
+	printf("\n");
+}
 
 int isDivisible(int x, int y)
 {

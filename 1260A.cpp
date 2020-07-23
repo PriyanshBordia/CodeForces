@@ -1,22 +1,33 @@
 #include <iostream>
+#include <math.h>
 
 typedef long long ll;
-
-#define sci(x) scanf("%d", &x);
-#define pfi(x) printf("%d\n", x);
-
-#define scll(x) scanf("%lld", &x);
-#define pfll(x) printf("%lld\n", x);
-
-#define scs(s) scanf("%s", &s);
-#define pfs(s) printf("%s\n", s);
 
 using namespace std;
 
 int main()
 {
-	int n;
-	sc(n);
+	int n; cin >> n;
+
+	while (n--)
+	{
+		int c, sum; cin >> c >> sum;
+
+		if (sum <= c)
+			cout << sum << endl;
+
+		else
+		{
+			if (sum % c == 0)
+				printf("%.0f\n", c * pow(sum / c, 2));
+
+			else
+			{
+				ll ans = (c - sum % c) * pow(sum / c, 2) + (sum % c) * pow(1 + (sum / c), 2);
+				printf("%lld\n", ans);
+			}
+		}
+	}
 	
 	return 0;
 }

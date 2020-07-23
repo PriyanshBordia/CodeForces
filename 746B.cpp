@@ -13,22 +13,33 @@ int main()
 	string s;
 	cin >> s;
 
-	int j = n - 2;
-	while (j >= 0)
+	string t;
+
+	if (n & 1)
 	{
-		cout << s[j];
-		j -= 2;
+		for (int i = 0; i < n; i++)
+		{
+			if (i % 2 == 0)
+				t = t + s[i];
+
+			else
+				t = s[i] + t;
+		}
 	}
 
-	(j == 0) ? j = 1 : j = 0;
-
-	while (j < n)
+	else
 	{
-		cout << s[j];
-		j += 2;
+		for (int i = 0; i < n; i++)
+		{
+			if (i & 1)
+				t = t + s[i];
+
+			else
+				t = s[i] + t;
+		}
 	}
 
-	cout << endl;
+	cout << t << endl;
 
 	return 0;
 }

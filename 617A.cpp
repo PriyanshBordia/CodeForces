@@ -1,12 +1,12 @@
 #include <iostream>
-#include <cstring>
 #include <math.h>
 
 using namespace std;
 
 int main()
 {
-	
+	long n;
+	cin >> n;
 
-	return 0;
+	cout << ceil(n / 5.0) << endl;
 }

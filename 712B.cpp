@@ -28,7 +28,7 @@ int main()
 			up++;
 
 		else if (s[i] == 'D')
-				down++;
+			down++;
 	}	
 
 	count = (abs(left - right) + abs(up - down)) / 2;  

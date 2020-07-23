@@ -1,8 +1,5 @@
 #include <iostream>
 #include <math.h>
-#include <numeric>
-#include <algorithm>
-#include <bits/stdc++.h>
 
 typedef long long ll;
 
@@ -18,8 +15,8 @@ int main()
 		int n;
 		cin >> n;
 
-		int A =1;
-		int B=n - 1;
+		int A = 1;
+		int B = n - 1;
 		
 		if (n % 2 == 0)
 		{
@@ -29,21 +26,13 @@ int main()
 
 		else
 		{ 
-			int LCM = 0;
-			int minimum = n;
-
-			for (int i = n / 2; i > 0; i--)
+			for (int i = 2; i < 100000; i++)
 			{
-				int a = i;
-				int b = n - i;
-
-				LCM = (a * b) / __gcd(a, b);
-
-				if (LCM < minimum)
+				if (n % i == 0)
 				{
-					A = a;
-					B = b;
-					minimum = LCM;
+					A = n / i;
+					B = n - n / i;
+					break;
 				}
 			}
 		}
