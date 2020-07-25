@@ -13,7 +13,15 @@ int main()
 		cin >> x[i];
 	}
 
-	(accumulate(x, x + n, 0) %  (n + 1) == 0) ? cout << "2\n" : cout <<  "5\n";
-	
+	int ans(0);
+
+	for (int i = 1; i <= 5; i++)
+	{
+		if ((accumulate(x, x + n, 0) + i) %  (n + 1) != 1)
+			ans++;
+	}
+		
+	cout << ans << endl;
+
 	return 0;
 }
