@@ -17,7 +17,7 @@ int main()
 
 	for (int i = 1; i <= 5; i++)
 	{
-		if ((accumulate(x, x + n, 0) + i) %  (n + 1) != 1)
+		if ((accumulate(x, x + n, 0) + i) % (n + 1) != 1)
 			ans++;
 	}
 		

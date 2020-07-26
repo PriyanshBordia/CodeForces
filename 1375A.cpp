@@ -20,10 +20,10 @@ int main()
 		for (int i = 0; i < n; ++i)
 		{
 			if (i & 1)
-				a[i] = abs(a[i]) * - 1;
+				a[i] = abs(a[i]);
 
 			else 
-				a[i] = abs(a[i]);
+				a[i] = abs(a[i]) * - 1;
 		}
 
 		for (int i = 0; i < n; ++i){ printf("%d ", a[i]); }

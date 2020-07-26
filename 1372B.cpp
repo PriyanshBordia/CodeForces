@@ -26,7 +26,7 @@ int main()
 
 		else
 		{ 
-			for (int i = 2; i < 100000; i++)
+			for (int i = 2; i < 1e05; i++)
 			{
 				if (n % i == 0)
 				{
