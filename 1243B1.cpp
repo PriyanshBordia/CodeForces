@@ -16,28 +16,35 @@ int main()
 		cin >> s;
 		cin >> t;
 
-		int cnt(0);
-		for (int i = 0; i < n; i++)
+		if (s.compare(t) == 0)
+			cout << "Yes\n";
+		
+		else
 		{
-			if (s[i] != t[i])
+			int cnt(0);
+			for (int i = 0; i < n; i++)
 			{
-				for (int j = 0; j < n; j++)
+				if (s[i] != t[i])
 				{
-					if (t[i] == t[j] && s[i] == s[j] && i != j)
+					cnt++;
+
+					for (int j = 0; j < n; j++)
 					{
-						char temp = s[i];
-						s[i] = t[j];
-						t[j] = temp;
-						cnt++;
+						if (t[i] == t[j] && s[i] == s[j] && i != j)
+						{
+							char temp = s[i];
+							s[i] = t[j];
+							t[j] = temp;
+						}
 					}
 				}
+
+				if (cnt > 1)
+					break;
 			}
 
-			if (cnt > 1)
-				break;
+			(cnt == 1 && s.compare(t) == 0) ? cout << "Yes\n" : cout << "No\n";
 		}
-
-		(cnt <= 1 && s.compare(t) == 0) ? cout << "Yes\n" : cout << "No\n";
 	}
 
 	return 0;

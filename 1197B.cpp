@@ -9,7 +9,7 @@ int main()
 
 	int max = 0;
 
-	vector<int> a(n);
+	int a[n];
 	for (int i = 0; i < n; i++)
 	{ 
 		cin >> a[i]; 
@@ -20,37 +20,18 @@ int main()
 	
 	int flag(1);
 
-	int i = max;
-	while (i >= 0 && i < n && a.size() > 1)
+	for (int i = 0; i < max; i++)
 	{
-		cout << a[i] << " " << a.size() << endl;
-
-		if (i - 1 >= 0 && a[i - 1] < a[i] && (i + 1) < n && a[i - 1] > a[i + 1])
+		if (a[i] >= a[i + 1])
 		{
-			auto it = a.begin();
-			for (it = a.begin(); it != a.end(); it++)
-			{
-				if (*it == a[i])
-					break;
-			}
-			i = i - 1;
-			a.erase(it);
+			flag = 0;
+			break;
 		}
+	}
 
-		if (i + 1 < n && a[i + 1] < a[i])
-		{
-			auto it = a.begin();
-			for (it = a.begin(); it != a.end(); it++)
-			{
-				if (*it == a[i])
-					break;
-			}
-
-			a.erase(it);
-			i = i + 1;
-		}
-
-		else
+	for (int i = max; i < n - 1; i++)
+	{
+		if (a[i] <= a[i + 1])
 		{
 			flag = 0;
 			break;

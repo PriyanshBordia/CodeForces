@@ -9,26 +9,30 @@ int main()
 	int a[n];
 	for (int i = 0; i < n; i++){ cin >> a[i]; }
 
-	for (int i = x; i < n; ++i)
+	for (int i = 0; i < n; ++i)
 	{
 		int flag(1);
 
-		for (int j = i - x; j < i && j < n; j++)
+		int j = i - x; 
+		while (j < i && j >= 0)
 		{
 			if (a[j] < a[i])
 			{
 				flag = 0;
 				break;
 			}
+			j++;
 		}
 
-		for (int k = i + 1; k <= i + y && k < n; k++)
+		int k = i + 1;
+		while (k <= i + y && k < n)
 		{
 			if (a[k] < a[i])
 			{
 				flag = 0;
 				break;
 			}
+			k++;
 		}
 
 		if (flag)
@@ -38,7 +42,7 @@ int main()
 		}
 	}
 
-	cout << n <<"g" << endl;
+	// cout << n << endl;
 
 	return 0;
 }
