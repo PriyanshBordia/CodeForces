@@ -13,8 +13,6 @@ typedef long long ll;
 
 using namespace std;
 
-void print(ll arr[], ll size);
-
 int main()
 {
 	int t;
@@ -44,15 +42,4 @@ int main()
 	}
 
 	return 0;
-}
-
-
-void print(ll arr[], ll size)
-{
-	for (int i = 0; i < size; ++i)
-	{
-		printf("%lld ", arr[i]);
-	}
-
-	printf("\n");
 }

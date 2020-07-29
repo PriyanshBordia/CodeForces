@@ -17,8 +17,7 @@ using namespace std;
 
 int main()
 {
-	ll n;
-	scll(n);
+	ll t; scll(t);
 	
 	while (t--)
 	{

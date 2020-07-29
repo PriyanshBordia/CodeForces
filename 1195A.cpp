@@ -12,30 +12,30 @@ int main()
 	int set = ceil((n * 1.0 ) / 2);
 
 	int a[n];
+	for (int i = 1; i <= k; i++)
+		b[i] = 0;
+
 	for (int i = 0; i < n; i++)
 	{ 
 		cin >> a[i]; 
 		b[a[i]] += 1;
 	}  
 
-	int stud(0);
-	
-	int i = 1; 
-	while (i <= k && set > 0)
+	int indi(0), pair(0);
+
+	for (int i = 1; i <= k; i++)
 	{
-		cout << a[i] << " ";
+		if (b[i] & 1)
+			indi++;
 
-		if (b[i] % 2 == 0)
-		{
-			set -= ceil((b[i] * 1.0) / 2);
-			stud += b[i];
-			b[i] = 0;
-		}
-
-		i++;
+		pair += b[i] / 2;
 	}
+	
+	int stud = min(set * 2, pair * 2);
 
-	while (i <= 0)
+	set = max(0, set - pair);
+
+	stud += min(set, indi);
 
 	cout << stud << endl;
 
