@@ -1,14 +1,23 @@
-	int a[n];
-	for (int i = 0; i < n; i++){ sci(a[i]); }
+	ll a[n]; for (ll i = 0; i < n; i++){ scll(a[i]); }
 
-	for (int i = 0; i < n; i++){ pfi(a[i]); }
+	for (ll i = 0; i < n; i++){ pfll(a[i]); }
+
+ll lcm(ll a, ll b)
+{
+	ll k(0);
+	ll m = min(a, b);
+	for (ll i = 1; i <= m; i++)
+	{
+		if (a % i == 0 && b % i == 0)
+			k = m;
+	}
+	return k;
+}
 
 void print(int arr[], int size)
 {
 	for (int i = 0; i < size; ++i)
-	{
 		pfi(arr[i]);
-	}
 
 	printf("\n");
 }
