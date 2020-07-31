@@ -21,17 +21,21 @@ int main()
 			(a[i] & 1) ? odd++ : even++;
 		}
 
-		if ((odd - k) % 2 == 0)
+		if ((odd - k) % 2 == 0 && odd >= k)
 		{
 			yes;
-			int i = 0;
-			while (k--)
+			
+			int cnt(0);
+			for (int i = 0; i < n; i++)
 			{
-				if (a[i] & 1)
-					cout << a[i] << " ";
-				i++;
+				if (a[i] & 1 && cnt < (k - 1))
+				{
+					cout << i + 1 << " ";
+					cnt++;
+				}
 			}
-			cout << endl;
+
+			cout << n << endl;
 		}
 
 		else

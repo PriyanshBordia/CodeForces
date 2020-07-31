@@ -11,6 +11,8 @@ typedef long long ll;
 #define yes printf("YES\n")
 #define no printf("NO\n")
 
+using namespace std;
+
 void solve()
 {
 	ll n; scll(n);
