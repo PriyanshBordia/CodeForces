@@ -10,28 +10,28 @@ using namespace std;
 
 void solve()
 {
-	ll l, r, m; cin >> l >> r >> m;
+	ll l, r, m, x = 0; cin >> l >> r >> m;
 
-	ll a, b = l, c = r;
-	
-	a = (l & 1) ? (l + 1) : l;
+	ll a = l, b, c;
 
-	int temp = 1;
-	while ((m - b + c) % a != 0 && b <= r && c >= l)
+	while (a <= r)
 	{
-		if (temp % 2 == 0)
-			b += 1;
-		
-		else
-			c -= 1;
+		x = m % a;
+		b = x + l;
+		c = l;
 
-		temp++;
+		if (x <= (r - l) && m / a > 0) break; 
+
+		else if ((a - x) <= (r - l)) { b = l; c = l + (a - x); break; }
+
+		a++;
 	}
 
 	cout << a << " " << b << " " << c << endl;
 
 	return;
 }
+
 int main()
 {
 	ll t; cin >> t;
