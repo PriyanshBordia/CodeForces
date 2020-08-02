@@ -22,10 +22,10 @@ void solve()
 	for (int i = 1; i <= n - g; i++)
 		cout << "9";
 
-	while(g--)
+	while (g--)
 		cout << "8";
 
-		cout << endl;
+	cout << endl;
 		
 	return;
 }
