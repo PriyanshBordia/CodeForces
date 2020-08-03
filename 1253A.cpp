@@ -15,7 +15,7 @@ void solve()
 	
 	int l(0), r(0), cnt(0), buff(0);
 
-	for (int i = 0; i < n; ++i)
+	for (int j = 0; j < n; ++j)
 	{
 		if (b[j] < a[j])
 		{
@@ -27,15 +27,22 @@ void solve()
 		{
 			if (cnt == 0)
 			{
-				l = i;
-				buff = 
+				l = j;
+				buff = b[j] - a[j];
 			}
 			
-			r = i;
+			else if ((b[j] - a[j]) != buff)
+			{
+				no;
+				return;
+			}
+
+			r = j;
 			cnt++;
 		}
-
 	}
+
+	(cnt > 0) ? (((r - l + 1) == cnt) ? yes : no) : yes;
 
 	return;
 }
