@@ -1,21 +1,20 @@
 #include <iostream>
-#include <math.h>
+
+typedef long long ll;
 
 using namespace std;
 
 int main()
 {
-	int t;
-	scanf("%d", &t);
+	int t; scanf("%d", &t);
 
 	while (t--)
 	{
-		int a, b, c;
-		scanf("%d %d %d", &a, &b, &c);
+		ll a, b, c; scanf("%lld %lld %lld", &a, &b, &c);
 
 		(a < c) ? printf("1 ") : printf("-1 ");
 
-		(c < (a * b)) ? printf("%d\n", b) : printf("-1\n");
+		(c < (a * b)) ? printf("%lld\n", b) : printf("-1\n");
 	} 
 
 	return 0;

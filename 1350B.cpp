@@ -11,25 +11,24 @@ void solve()
 	int ans(0);
 	for (int i = 1; i <= n; i++)
 	{
-		int mx(0), cnt(0), index(i);
-		for (int j = i; j <= n; j++)
+		int mx(s[i]), cnt(1), index(i);
+		for (int j = 2 * i; j <= n; j += i)
 		{
-			if (mx < s[j] && j % index == 0)
+			if (mx < s[j] && (j % index == 0))
 			{
 				mx = s[j];
 				index = j;
 				cnt++;
-
-				cout << s[j] << " ";
 			}
 		}
 
-		ans = max(ans, cnt);
+		if (s[1] < s[i] && i != 1)
+			cnt++;
 
-		// cout << ans << endl;
+		ans = max(ans, cnt);
 	}
 
-	cout << endl << ans << endl;
+	cout << ans << endl;
 
 	return; 
 }
