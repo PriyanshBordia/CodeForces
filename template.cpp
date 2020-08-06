@@ -10,8 +10,10 @@
 
 typedef long l;
 typedef long long ll;
+
 #define scll(x) scanf("%lld", &x)
 #define pfll(x) printf("%lld\n", x)
+
 #define yes printf("YES\n")
 #define no printf("NO\n")
 
@@ -56,3 +58,12 @@ int main()
 
 #define scll(x) scanf("%lld", &x);
 #define pfll(x) printf("%lld\n", x);
+
+
+#include <time.h>
+
+	clock_t start = clock();
+
+	clock_t end = clock();
+
+	cout << double(end - start) / CLOCKS_PER_SEC << endl;

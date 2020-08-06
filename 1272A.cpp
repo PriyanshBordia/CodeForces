@@ -1,5 +1,5 @@
 #include <iostream>
-#include <math.h>
+#include <algorithm>
 
 typedef long long ll;
 
@@ -12,57 +12,20 @@ int main()
 	while (q--)
 	{
 		ll a, b, c; cin >> a >> b >> c;
-
-		ll k (0);
-
-		if (a == b && b == c);
-
-		else if (a == b)
-			(c > a) ? c -= 1 : c += 1;
-
-		else if (b == c)
-			(b < a) ? a -= 1 : a += 1;
-
-		else if (a == c)
-			(b > a) ? b -= 1 : b += 1;
-
-		else if (a > b && a < c)
+		
+		ll ans(abs(a - b) + abs(b - c) + abs(a - c));
+		for (int i = -1; i <= 1; i++)
 		{
-			b -= 1;
-			c += 1; 
+			for (int j = -1; j <= 1; j++)
+			{
+				for (int k = -1; k <= 1; k++)
+				{
+					ans = min(ans, abs(a - b + i - j) + abs(b - c + j - k) + abs(a - c + i - k));
+				}
+			}
 		}
 
-		else if (a < b && a > c)
-		{
-			b += 1;
-			c -= 1;
-		}
-
-		else if (b < c && b > a)
-		{
-			a += 1;
-			c -= 1;
-		}
-
-		else if (b > c && b < a)
-		{
-			a -= 1;
-			c += 1;
-		}
-
-		else if (a < c && b > c)
-		{
-			a += 1;
-			b -= 1;
-		}
-
-		else if (b < c && c < a)
-		{
-			a -= 1;
-			b += 1;
-		}
-
-		cout << abs(a - b) + abs(b - c) + abs(c - a) << endl;
+		cout << ans << endl;
 	}
 
 	return 0;

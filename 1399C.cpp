@@ -1,70 +1,48 @@
 #include <iostream>
-#include <cstring>
-#include <math.h>
 #include <algorithm>
-#include <numeric>
-#include <vector>
-#include <map>
-#include <set>
-// #include <bits/stdc++.h>
 
-typedef long l;
 typedef long long ll;
-#define scll(x) scanf("%lld", &x)
-#define pfll(x) printf("%lld\n", x)
-#define yes printf("YES\n")
-#define no printf("NO\n")
+
+#define sc(x) scanf("%d", &x)
+#define pf(x) printf("%d\n", x)
 
 using namespace std;
 
 void solve()
 {
-	int n; cin >> n;
-	
-	int mono[51] = { 0 };
-	
-	int w[n]; 
-	for (ll i = 0; i < n; i++)
-	{ 
-		cin >> w[i]; 
-		mono[w[i]]++;
-	}
+	int n; sc(n);
+		
+	int cnt[n + 1]; 
 
-	int ans1(0);
-	for (int i = 0; i < 51; i++)
+	for (int i = 0; i <= n; ++i) cnt[i] = 0;
+
+	for (int i = 0; i < n; i++) { int x; cin >> x; ++cnt[x]; }
+
+	int ans(0);
+	for (int s = 2; s <= 2 * n; s++)
 	{
-		ans1 = max(ans1, mono[i] / 2);
-	}
+		int cur(0);
 
-	sort(w, w + n);
-
-	map<int, int> m;
-	for (int i = 0; i < n; ++i)
-	{
-		for (int j = i + 1; j < n; ++j)
-		{
-			m[w[i] + w[j]]++; 
+		for (int i = 1; i < (s + 1) / 2; ++i)
+		{			
+			if ((s - i) <= n)
+				cur += min(cnt[i], cnt[s - i]);
 		}
+
+		if (s % 2 == 0)
+			cur += cnt[s / 2] / 2;
+
+		ans = max(ans, cur);
 	}
 
-	int mx(0), ans2(0);
-	for (auto it = m.begin(); it != m.end(); it++)
-	{
-	// 	if (it->second > mx)
-	// 	{
-			cout << it->second << "  " << it->first << endl;
-		// }
-	}
-
-cout<<endl;
-	// cout << max(mx, max(ans1, ans3)) << endl;
+	cout << ans << endl;
 
 	return;
 }
 
 int main()
 {
-	ll t; scll(t);
+	int t; sc(t);
 	
 	while (t--)
 		solve();
