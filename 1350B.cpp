@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -8,27 +9,18 @@ void solve()
 
 	int s[n + 1]; for (int i = 1; i <= n; i++) cin >> s[i];
 
-	int ans(0);
+	int ans[n + 1]; for (int i = 0; i <= n; i++) ans[i] = 1;
+
 	for (int i = 1; i <= n; i++)
 	{
-		int mx(s[i]), cnt(1), index(i);
 		for (int j = 2 * i; j <= n; j += i)
 		{
-			if (mx < s[j] && (j % index == 0))
-			{
-				mx = s[j];
-				index = j;
-				cnt++;
-			}
+			if (s[i] < s[j])
+				ans[j] = max(ans[i] + 1, ans[j]);
 		}
-
-		if (s[1] < s[i] && i != 1)
-			cnt++;
-
-		ans = max(ans, cnt);
 	}
 
-	cout << ans << endl;
+	cout << *max_element(ans + 1, ans + n + 1) << endl;
 
 	return; 
 }
