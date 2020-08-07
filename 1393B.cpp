@@ -1,11 +1,6 @@
 #include <iostream>
-#include <cstring>
 #include <math.h>
-#include <algorithm>
-#include <numeric>
-#include <vector>
 #include <map>
-#include <set>
 typedef long long ll;
 #define scll(x) scanf("%lld", &x)
 #define pfll(x) printf("%lld\n", x)
