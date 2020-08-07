@@ -2,6 +2,13 @@
 
 	for (ll i = 0; i < n; i++){ pfll(a[i]); }
 
+bool isPerfectSquare(long double x)
+{
+	long double sr = sqrt(x);
+
+	return (sr - floor(sr) == 0);
+} 
+
 ll lcm(ll a, ll b)
 {
 	ll k(0);
