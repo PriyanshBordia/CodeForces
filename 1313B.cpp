@@ -1,24 +1,22 @@
 #include <iostream>
 
-#define sc(x) scanf("%d", &x);
-#define pf(x, y) printf("%d %d\n", x, y);
-
 using namespace std;
+
+void solve()
+{
+	int n; cin >> n;
+
+	int x, y; cin >> x >> y;
+
+	return;
+}
 
 int main()
 {
-	int t;
-	sc(t);
+	int t; cin >> t;
 
 	while (t--)
-	{
-		int n;
-		sc(n);
-
-		int x, y;
-		sc(x)
-		sc(y)
-
-	}
+		solve();
+	
 	return 0;
 }

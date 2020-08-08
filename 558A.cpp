@@ -1,58 +1,56 @@
 #include <iostream>
 #include <algorithm>
+#include <numeric>
+#include <utility>
 #include <vector>
-#include <bits/stdc++.h>
 
 typedef long long ll;
-
-#define sc(x) scanf("%d", &x);
-#define pf(x) printf("%d\n", x);
-
-#define scll(x) scanf("%lld", &x);
-#define pfll(x) printf("%lld\n", x);
 
 using namespace std;
 
 int main()
 {
-	int n;
-	sc(n)
+	int n; cin >> n;
 
-	vector<int> left;
-	vector<int> right;
-
-	int apples = 0;
+	vector< pair <int, int> > left;
+	vector< pair <int, int> > right;
 
 	for (int i = 0; i < n; i++)
 	{ 
-		int x, a;
-		scanf("%d %d", &x, &a);  
+		int x, a; cin >> x >> a;
 
-		(x < 0) ? left.push_back(a) : right.push_back(a);
+		if (x < 0)
+			left.push_back( make_pair(x, a));
+		else
+			right.push_back( make_pair(x, a));
 	}
 
-	if (right.size() < left.size())
+	sort(left.begin(), left.end(), greater<pair<int, int> >());
+	sort(right.begin(), right.end());
+	
+	// cout << right.size() << " " << left.size() << endl;
+
+	ll ans(0);
+	if (left.size() < right.size())
 	{
-		apples += accumulate(right.begin(), right.end(), 0);
+		for (int i = 0; i < left.size(); ++i)
+		{
+			ans += left[i].second + right[i].second;
+		}
 
-		apples += accumulate(left.begin(), left.begin() + right.size() + 1, 0);
-	}
-
-	else if (right.size() > left.size())
-	{
-		apples += accumulate(left.begin(), left.end(), 0);
-
-		apples += accumulate(right.begin(), right.begin() + left.size() + 1, 0);
+		ans += right[left.size()].second;
 	}
 
 	else
 	{
-		apples += accumulate(left.begin(), left.end(), 0);
+		for (int i = 0; i < right.size(); ++i)
+			ans += left[i].second + right[i].second;
 
-		apples += accumulate(right.begin(), right.begin() + left.size() + 1, 0);
+		if (left.size() > right.size())
+			ans += left[right.size()].second;
 	}
 
-	printf("%d\n", apples);
+	cout << ans << endl;
 	
 	return 0;
 }
