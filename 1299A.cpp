@@ -8,20 +8,36 @@ int main()
 {
 	int n; cin >> n;
 
-	vector<int> v(n, 0); for (int i = 0; i < n; i++) cin >> v[i];
-
-	if (n & 1)
-		sort(v.begin(), v.end());
-
-	else
-		sort(v.rbegin(), v.rend());
-
-	for (int i = 0; i < n; ++i)
+	vector<int> even; 
+	vector<int> odd;
+	for (int i = 0; i < n; i++) 
 	{
-		cout << v[i] << " ";
+		int x; cin >> x;
+
+		(x & 1) ? odd.push_back(x) : even.push_back(x);
 	}
 
-	cout << endl;
+	sort (even.begin(), even.end());
+	sort (odd.begin(), odd.end());
+
+	int ans(odd[0]);
+	
+	cout << odd[0] << " ";
+
+	if (odd.size() < even.size())
+	for (int i = 1; i < odd.size(); ++i)
+	{
+		ans = (ans | odd[i]) - odd[i];
+		cout << odd[i] << " ";
+	}
+
+	for (int i = 0; i < even.size(); ++i)
+	{
+		ans = (ans | even[i]) - even[i];
+		cout << even[i] << " ";
+	}
+
+	cout << endl << ans << endl;
 
 	return 0;
 }

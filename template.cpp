@@ -3,17 +3,12 @@
 #include <math.h>
 #include <algorithm>
 #include <numeric>
-
 #include <vector>
 #include <map>
 #include <set>
-
-typedef long l;
 typedef long long ll;
-
 #define scll(x) scanf("%lld", &x)
 #define pfll(x) printf("%lld\n", x)
-
 #define yes printf("YES\n")
 #define no printf("NO\n")
 
@@ -28,7 +23,7 @@ void solve()
 
 int main()
 {
-	ll t; scll(t);
+	ll t = 1; scll(t);
 	
 	while (t--)
 	{

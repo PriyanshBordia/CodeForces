@@ -9,11 +9,7 @@ int main()
 	int n; cin >> n;
 
 	map<int, int> a;
-	for (int i = 0; i < n; i++) 
-	{ 
-		int x; cin >> x; 
-		a[x]++; 
-	}
+	for (int i = 0; i < n; i++) int x; cin >> x; a[x]++; 
 
 	for (auto& i : a)
 	{

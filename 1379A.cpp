@@ -24,11 +24,9 @@ int check(const string s)
 
 void solve()
 {
-	int n;
-	cin >> n;
+	int n; cin >> n;
 
-	string s;
-	cin >> s;
+	string s; cin >> s;
 
 	string t = "abacaba";
 
@@ -110,6 +108,7 @@ void solve()
 						if (s[k] == '?')
 							s[k] = 'd';
 					}
+					
 					break;
 				}
 

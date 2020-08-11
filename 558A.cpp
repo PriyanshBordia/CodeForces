@@ -28,15 +28,11 @@ int main()
 	sort(left.begin(), left.end(), greater<pair<int, int> >());
 	sort(right.begin(), right.end());
 	
-	// cout << right.size() << " " << left.size() << endl;
-
 	ll ans(0);
 	if (left.size() < right.size())
 	{
 		for (int i = 0; i < left.size(); ++i)
-		{
 			ans += left[i].second + right[i].second;
-		}
 
 		ans += right[left.size()].second;
 	}

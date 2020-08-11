@@ -17,7 +17,7 @@ using namespace std;
 
 void solve()
 {
-	int, m; cin >> n >> m;
+	ll n, m; cin >> n >> m;
 	
 	char a[n][m];
 
@@ -32,9 +32,6 @@ void solve()
 	{
 		for (int j = 0; j < m; j++)
 		{
-			if (i == n - 1 && j == m - 1)
-				continue;
-
 			if (i == n - 1 && a[i][j] == 'D')
 				cnt++;
 
