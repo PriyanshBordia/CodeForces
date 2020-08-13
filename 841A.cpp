@@ -5,8 +5,7 @@ using namespace std;
 
 int main()
 {
-	int n, k;
-	cin >> n >> k;
+	int n, k; cin >> n >> k;
 
 	int arr[26] = { 0 };
 

@@ -9,28 +9,26 @@ void solve()
 
 	string s; cin >> s;
 
-	int i = s.size() - 1; 
-	while (i >= 0)
+	int x(0), y(0);
+
+	for (int i = 0; i < n; ++i)
 	{
-		if (s[i] == '0' && s[i - 1] == '1' && (i - 1 >= 0))
-		{
-			if (i + 1 < n && s[i + 1] == '0')
-			{
-				s.erase(s.begin() + i);
-			}
-
-			else
-			{
-				s.erase(s.begin() + i - 1);
-				i--;
-			}
-
-			// cout << i << " " << s << endl;
-		}
-
+		if (s[i] == '0')
+			x++;
 		else
-			i--;
+			break;
 	}
+
+	for (int i = n - 1; i >= 0; --i)
+	{
+		if (s[i] == '1')
+			y++;
+		else
+			break;
+	}
+
+	if (x + y < n)
+		s = string(x + 1, '0') + string(y, '1');
 
 	cout << s << endl;
 
