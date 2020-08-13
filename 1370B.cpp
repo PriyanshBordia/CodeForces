@@ -1,55 +1,51 @@
 #include <iostream>
-#include <math.h>
-#include <algorithm>
+#include <vector>
 
 using namespace std;
 
-int isPrime(int x)
+void solve()
 {
-	if (x == 2)
-		return 1;
+	int n; cin >> n;
 
-	else if (x % 2 == 0)
-		return 0;
+	vector<int> even;
+	vector<int> odd;
 
-	for (int i = 3; i <= sqrt(x); i += 2)
-	{
-		if (x % i == 0)
-			return 0;
+	for (int i = 1; i <= 2 * n; i++)
+	{ 
+		int x; cin >> x; 
+
+		(x % 2 == 0) ? even.push_back(i) : odd.push_back(i);
 	}
 
-	return 1;
+	if (odd.size() == 0) { even.pop_back(); even.pop_back(); }
+
+	else if (odd.size() % 2 == 1) { even.pop_back(); odd.pop_back(); }
+
+	else { odd.pop_back(); odd.pop_back(); }
+
+	int i = 0; 
+	while (i < even.size())
+	{
+		cout << even[i] << " " << even[i + 1] << endl;  
+		i += 2;
+	}
+
+	int j = 0; 
+	while (j < odd.size())
+	{
+		cout << odd[j] << " " << odd[j + 1] << endl;
+		j += 2;
+	}
+
+	return;	
 }
 
 int main()
 {
-	int t;
-	scanf("%d", &t);
+	int t; scanf("%d", &t);
 
 	while(t--)
-	{	
-		int n;
-		scanf("%d", &n);
-
-		int even = 0;
-		int odd = 0;
-
-		int a[2 * n];
-		for (int i = 0; i < 2 * n; i++)
-		{ 
-			scanf("%d", &a[i]); 
-
-			(a[i] % 2 == 0) ? even++ : odd++;
-		}
-		
-		sort(a, a + 2*n);
-
-		int start = 0;
-		int end = 2 * n;
-
-		(isPrime(a[0] + a[1])) ? start = 2 : end = 2 * n - 2;
-
-		for (int i = start; i < end; i += 2) { printf("%d %d\n", a[i], a[i + 1]); }
-	}
+		solve();
 	
+	return 0;
 }

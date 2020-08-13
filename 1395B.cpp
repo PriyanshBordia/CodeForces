@@ -16,19 +16,32 @@ using namespace std;
 
 void solve()
 {
-	ll n; scll(n);
+	ll n, m, x, y; cin >> n >> m >> x >> y;
+
+	int a[n + 1][m + 1] = { 0 };
+	for (int i = 0; i <= n; i++)
+	{
+		for (int j = 0; j <= m; j++)
+			a[i][j] = ((i == x && j == y) ? 1 : 0);
+	}
+
+	for (int i = 1; i <= n; i++)
+	{
+		for (int j = 1; j <= m; j++)
+		{
+			if ()
+		}
+	}
 	
 	return;
 }
 
 int main()
 {
-	ll t; scll(t);
+	ll t = 1; //scll(t);
 	
 	while (t--)
-	{
 		solve();
-	}	
 
 	return 0;
 }

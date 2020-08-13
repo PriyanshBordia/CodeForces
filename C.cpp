@@ -3,7 +3,6 @@
 #include <math.h>
 #include <algorithm>
 #include <numeric>
-
 #include <vector>
 #include <map>
 #include <set>
@@ -17,33 +16,7 @@ using namespace std;
 
 void solve()
 {
-	int, m; cin >> n >> m;
-	
-	char a[n][m];
-
-	for (int i = 0; i < n; ++i)
-	{
-		for (int j = 0; j < m; j++)
-			cin >> a[i][j];
-	}
-
-	ll cnt(0);
-	for (int i = 0; i < n; ++i)
-	{
-		for (int j = 0; j < m; j++)
-		{
-			if (i == n - 1 && j == m - 1)
-				continue;
-
-			if (i == n - 1 && a[i][j] == 'D')
-				cnt++;
-
-			else if (j == m - 1 && a[i][j] == 'R')
-				cnt++;
-		}
-	}
-
-	cout << cnt << endl;
+	ll n; scll(n);
 
 	return;
 }

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <set>
 
 #define yes printf("YES\n")
 #define no printf("NO\n")
@@ -11,47 +12,42 @@ void solve()
 {
 	int n; cin >> n;
 
-	vector< pair<int, int> > m;
+	set<int> asc;
+	set<int> desc;
 
 	int a[n]; 
 	for (int i = 0; i < n; i++) 
 	{ 
-		int cin >> a[i]; 
+		int x; cin >> x; 
 
-		m[a[i]]++; 
+		(asc.find(x) == asc.end()) ? asc.insert(x) : desc.insert(x); 
 	}
 
-	if (2 * (m.size()) < n)
+	if (asc.size() + desc.size() < n)
 		no;
 
 	else
 	{
 		yes;
-		sort (m.begin(), m.end(), greater<>());
 
-		int k = m.size(), l = n - m.size();
+		int k = asc.size(), l = desc.size();
 
 		cout << k << endl;
 
-		for (auto it = m.begin(); it != m.end(); it++)
-		{
-			if (it->second >= 2)
-			{
-				cout << it->first << " ";
-				it->second--;
-			}
-		}
+		for (auto it = asc.begin(); it != asc.end(); it++)
+			cout << *it << " ";
 
 		cout << endl << l << endl;
 
-		for (auto it = m.begin(); it != m.end(); it++)
-		{
-			if (it->second >= 1)
-			{
-				cout << it->first << " ";
-				it->second--;
-			}
-		}
+		vector<int> v;
+
+		for (auto it = desc.begin(); it != desc.end(); it++)
+			v.push_back(*it);
+
+		sort(v.rbegin(), v.rend());
+
+		for (int i = 0; i < v.size(); i++)
+			cout << v[i] << " ";
 		
 		cout << endl;
 	}
