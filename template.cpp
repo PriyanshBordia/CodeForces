@@ -26,9 +26,7 @@ int main()
 	ll t = 1; scll(t);
 	
 	while (t--)
-	{
 		solve();
-	}	
 
 	return 0;
 }

@@ -18,6 +18,36 @@ void solve()
 {
 	ll n; scll(n);
 
+	string s; cin >> s;
+	
+	ll sum(0);
+
+	ll ans(0);
+
+	
+	for (int i = 1; i <= n; ++i)
+	{
+		for (int j = 0; j <= n - i; j++)
+		{
+			string t = s.substr(j, i);
+
+			for (int k = j; k < (j + t.size()); k++)
+			{
+				int x = int(s[k] - '0');
+				
+				sum += x;
+			}
+			
+			if (sum == i)
+				ans++;
+
+			sum = 0;
+		}
+
+	}
+
+	cout << ans << endl;
+
 	return;
 }
 
