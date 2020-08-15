@@ -17,10 +17,13 @@ int main()
 		cout << abs(pos - l) + 1 << endl;
 
 	else if (pos > r)
+		cout << abs(l - pos) + 2 << endl;
 
-	els
+	else if (pos < l)
+		cout << abs(r - pos) + 2 << endl;
+	
 	else 
-		cout << min(2 * abs(r - pos) + pos - l + 2, 2 * (pos - l) + r - pos + 2) << endl;
+		cout << min(2 * abs(r - pos) + abs(pos - l), 2 * abs(pos - l) + abs(r - pos)) + 2 << endl;
 
 	return 0;
 }

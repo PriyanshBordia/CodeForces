@@ -13,46 +13,37 @@ void solve()
 {
 	ll n; scll(n);
 	
-	map<ll, ll> m; 
-	for (int i = 1; i <= n; i++) { int a; cin >> a; m[a]++; }
-	
+	ll sum2(0), sum4(0);
+
+	int cnt[100005] = { 0 }; 
+	for (int i = 0; i < n; ++i)
+	{
+		int a; cin >> a; 
+
+		sum2 -= cnt[a] / 2;
+		sum4 -= cnt[a] / 4;
+
+		cnt[a]++;
+
+		sum2 += cnt[a] / 2;
+		sum4 += cnt[a] / 4;
+	}
+
 	ll q; scll(q);
 
 	while (q--)
 	{
 		char c; ll x; cin >> c >> x;
 
-		m[x] = (c == '+') ? m[x] + 1 : m[x] - 1; 
+		sum2 -= cnt[x] / 2;
+		sum4 -= cnt[x] / 4;
+		
+		cnt[x] = (c == '+') ? cnt[x] + 1 : cnt[x] - 1; 
 
-		int sq(0), req(0);
-		for (auto it = m.begin(); it != m.end(); it++)
-		{
-			if (it->second >= 4 && sq == 0)
-			{
-				sq = 1;
+		sum2 += cnt[x] / 2;
+		sum4 += cnt[x] / 4;
 
-				if ((it->second - 4) >= 4 && req != 2) 
-					req = 2;
-
-				else if ((it->second - 4) >= 2 && req != 2)
-				{
-					req = (req == 0) ? 1 : 2;
-				}
-			}
-
-			else if (it->second >= 4 && req != 2)
-				req = 2;
-			
-			else if (it->second >= 2 && req != 2)
-			{
-				req = (req == 0) ? 1 : 2;
-			}
-
-			if (sq == 1 && req == 2)
-				break;
-		}
-
-		(sq == 1 && req == 2) ? yes : no;
+		(sum2 >= 4 && sum4 >= 1) ? yes : no;
 	}
 
 	return;
@@ -69,3 +60,6 @@ int main()
 
 	return 0;
 }
+
+
+// As sum2 will also have ans of sum4 that equals atleast 8 planks required.

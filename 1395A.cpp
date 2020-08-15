@@ -18,33 +18,29 @@ void solve()
 {
 	ll r, g, b, w; cin >> r >> g >> b >> w;
 
-	ll k = min(r, min(g, b));
-	
-	if ((k & 1 && w % 2 == 0) || (w & 1 && k % 2 == 0 && k != 0))
-		w -= 3; r += 1; g += 1; b += 1;
-	
-	w += (3 * k);
+	int cnt(0);
+	if (w % 2 == 0) cnt++;
+	if (r % 2 == 0) cnt++;
+	if (g % 2 == 0) cnt++;
+	if (b % 2 == 0) cnt++;
 
-	r = r - k;
-	g = g - k;
-	b = b - k;
-
-	if ((k & 1 && w % 2 == 0) || (w & 1 && k % 2 == 0 && k != 0))
-		w -= 3; r += 1; g += 1; b += 1;
-
-	if (r % 2 == 0 && g % 2 == 0 && b % 2 == 0)
+	if (cnt >= 3)
 		yes;
 
-	else if (r % 2 == 0 && g % 2 == 0 && b % 2 != 0)
-		yes;
+	else if (r > 0 && g > 0 && b > 0)
+	{
+		w += 3; r--; g--; b--;
+		
+		cnt = 0;
+		if (w % 2 == 0) cnt++;
+		if (r % 2 == 0) cnt++;
+		if (g % 2 == 0) cnt++;
+		if (b % 2 == 0) cnt++;
 
-	else if (r % 2 != 0 && g % 2 == 0 && b % 2 == 0)
-		yes;
+		(cnt >= 3) ? yes : no;
+	}
 
-	else if (r % 2 == 0 && g % 2 != 0 && b % 2 == 0)
-		yes;
-
-	else
+	else 
 		no;
 
 	return;
