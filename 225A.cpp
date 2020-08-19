@@ -1,19 +1,22 @@
 #include <iostream>
 
-typedef long long ll;
-
-#define sc(x) scanf("%d", &x);
-#define pf(x) printf("%d\n", x);
-
-#define scll(x) scanf("%lld", &x);
-#define pfll(x) printf("%lld\n", x);
+#define yes printf("YES\n")
+#define no printf("NO\n")
 
 using namespace std;
 
 int main()
 {
-	int n;
-	sc(n);
+	int n; cin >> n;
 	
+	int x, y; cin x;
+
+	while (n--)
+	{
+		cin >> x >> y;
+
+		
+	}
+
 	return 0;
 }

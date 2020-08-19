@@ -1,16 +1,7 @@
 #include <iostream>
-#include <cstring>
-#include <math.h>
 #include <algorithm>
-#include <numeric>
-#include <vector>
-#include <map>
-#include <set>
+
 typedef unsigned long long ll;
-#define scll(x) scanf("%lld", &x)
-#define pfll(x) printf("%lld\n", x)
-#define yes printf("YES\n")
-#define no printf("NO\n")
 
 using namespace std;
 
@@ -32,10 +23,9 @@ void solve()
 			ll t = i - 1;
 			ll k = i + 1, ans(a[i]);
 
-			while (a[k] < a[t] && k < n)
+			while ((k < n) && (a[k] < a[t]))
 			{
 				ans = min(a[k], ans);
-				// a[k] += 1;
 				k++;
 			}
 			
@@ -52,7 +42,7 @@ void solve()
 
 int main()
 {
-	ll t = 1; scll(t);
+	ll t; cin >> t;
 	
 	while (t--)
 		solve();
