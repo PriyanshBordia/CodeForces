@@ -1,4 +1,6 @@
 #include <iostream>
+#include <algorithm>
+#include <numeric>
 
 using namespace std;
 
@@ -6,31 +8,30 @@ int main()
 {
 	int n; cin >> n;
 
-	int iL(0), iR(0), mxL(0), mxR(0), sumL(0), sumR(0);
-	while (n--)
+	int l[n], r[n]; for (int i = 0; i < n; i++) { cin >> l[i] >> r[i]; }
+
+	int index(0), mxL(0), mxR(0), sumL(0), sumR(0);
+
+	sumL = accumulate(l, l + n, 0);
+	sumR = accumulate(r, r + n, 0);
+
+	for (int i = 0; i < n; i++)
 	{
-		int l, r; cin >> l >> r;
-
-		if (r > mxR)
+		if (abs(sumL - sumR - 2 * (l[i] - r[i]) + 2 * (mxL - mxR)) > abs(sumL - sumR))
 		{
-			mxR = r;
-			iR = i + 1; 
-		}
+			index = i + 1;
 
-		if (l > mxL)
-		{
-			mxL = l;
-			iL = i + 1;
-		}
+			sumL += mxL; sumR += mxR;
+			sumL -= mxR; sumR -= mxL;
 
-		sumL += l;
-		sumR += r;
+			mxL = l[i]; mxR = r[i]; 
+
+			sumL -= l[i]; sumR -= r[i];
+			sumL += r[i]; sumR += l[i];
+		}
 	}
 
-	if (sumR > sumL && mxL > mxR)
-		cout << iR << endl;
-
-	else if (sumL > sumR && ) 
+	cout << index << endl;
 
 	return 0;	
 }
