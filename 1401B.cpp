@@ -16,7 +16,24 @@ using namespace std;
 
 void solve()
 {
-	ll n; scll(n);
+	ll x1, y1, z1; cin >> x1 >> y1 >> z1;
+
+	ll x2, y2, z2; cin >> x2 >> y2 >> z2;
+
+	ll ans = 2 * min (z1, y2);
+	
+	z1 -= min (z1, y2);;
+	y2 -= min (z1, y2);
+	
+	z2 -= min(z2, z1);
+	z1 -= min(z2, z1);
+
+	z2 -= min(x1, z2);
+	x2 -= min(x1, z2);
+
+	ans -= z2 * 2;
+
+	cout << ans << endl;
 	
 	return;
 }
