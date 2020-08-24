@@ -11,10 +11,6 @@ void solve()
 {
 	string y; cin >> y;
 
-	// while (y[0] == '0' && y.size() > 0)
-	// 	y.erase(y.begin());
-
-	
 	int sum(0);
 	for (int i = 0; i < y.size(); ++i)
 		sum += (y[i] - '0');

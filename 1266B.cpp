@@ -15,13 +15,7 @@ void solve()
 	
 	ll k = x % 14;
 
-	if (k >= 1 && k <= 6 && l >= 1)
-	{
-		yes;
-		return;
-	}
-
-	no;
+	(k >= 1 && k <= 6 && l >= 1) ? yes : no;
 	
 	return;
 }

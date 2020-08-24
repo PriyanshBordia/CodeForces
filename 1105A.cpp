@@ -11,7 +11,7 @@ int main()
 	
 	int a[n]; for (int i = 0; i < n; i++)  cin >> a[i];
 	
-	int k (0), ans(100000);
+	int k(0), ans(100000);
 	for (int t = 1; t <= 100; t++)
 	{
 		int sum (0);
