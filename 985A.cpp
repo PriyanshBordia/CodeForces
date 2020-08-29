@@ -1,5 +1,6 @@
 #include <iostream>
-#include <numeric>
+#include <algorithm>
+#include <math.h>
 
 using namespace std;
 
@@ -7,32 +8,25 @@ int main()
 {
 	int n; cin >> n;
 
-	int pos[n + 1];
+	n /= 2;
 
-	int even(0), odd(0);
+	int p[n]; for (int i = 0; i < n; i++) cin >> p[i];
 
-	int a[n + 1] = { 0 };
-	for (int i = 0; i < n / 2; i++)
+	sort (p, p + n);
+
+	int ans1(0), ans2(0);
+
+	int i = 1, j = 2;
+	for (int k = 0; k < n; k++)
 	{
-		int x; cin >> x;
+		int x = p[k];
 
-		a[x] = 1;
+		ans1 += abs(i - x); ans2 += abs(j - x); 
 
-		(x & 1) ? odd++ : even++; 
+		i += 2; j += 2;
 	}
 
-
-	int i = 1;
-	while (i < n)	
-	{
-		if (a[i] == 1)
-		{
-
-		}
-
-		else
-			i--;
-	}
+	cout << min(ans1, ans2) << endl;
 
 	return 0;
 }

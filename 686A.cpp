@@ -1,24 +1,31 @@
 #include <iostream>
 
+typedef long long ll;
+
 using namespace std;
 
 int main()
 {
-	int n; cin >> n;
+	ll n, x; cin >> n >> x;
 
-	int a[n]; for (int i = 0; i < n; i++) cin >> a[i];
-
-	for (int i = n - 1; i > 0; --i)
+	ll dist(0);
+	while (n--)
 	{
-		for (int j = 0; j < i; j++)
+		int d; char c; cin >> c >> d;
+
+		if (c == '+')
+			x += d;
+
+		else 
 		{
-			if (a[j] > a[j + 1])
-			{
-				swap(a[j], a[j + 1]);	
-				cout << j + 1 << " " << j + 2 << endl;
-			}
+			if (c == '-' && x >= d)
+				x -= d;
+
+			else
+				dist++;
 		}
 	}
-
+	
+	cout << x << " " << dist << endl;
 	return 0;
 }

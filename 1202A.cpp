@@ -7,16 +7,13 @@ using namespace std;
 
 int main()
 {
-	int t;
-	cin >> t;
+	int t; cin >> t;
 
 	while (t--)
 	{
-		string x;
-		cin >> x;
+		string x; cin >> x;
 
-		string y;
-		cin >> y;
+		string y; cin >> y;
 
 		
 	}
