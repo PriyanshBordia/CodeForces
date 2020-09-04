@@ -23,7 +23,7 @@ void solve()
 			ll t = i - 1;
 			ll k = i + 1, ans(a[i]);
 
-			while ((k < n) && (a[k] < a[t]))
+			while ((k < n) && (a[k] < a[t]) && (a[k] <= a[k - 1]))
 			{
 				ans = min(a[k], ans);
 				k++;

@@ -17,18 +17,47 @@ using namespace std;
 
 void solve()
 {
-	ll n; cin >> n;
-	
-	ll a[n]; for (ll i = 0; i < n; i++){ scll(a[i]); }
+	ll a, b, x, y, n; cin >> a >> b >> x >> y >> n;
 
-	ll ans(0), cnt(0), mx(0);
+	ll ans(0), cnt(0), m(n);
 
-	string s; cin >> s;
+	ll a2, a1, b2, b1;
 
-	for (int i = 0; i < s.size(); i++)
+	a2 = a1 = a; b2 = b1 = b;
+
+	ll ans2(0), ans1(0);
+
+// -> 
+	cnt = max(x, a1 - n);
+
+	n -= a1 - cnt;
+
+	a1 = cnt;
+
+	if (n > 0)
 	{
-
+		cnt = max(y, b1 - n);
+		b1 = cnt;
 	}
+
+	ans1 = a1 * b1;
+
+// ->
+	cnt = max(y, b2 - m);
+
+	m -= b2 - cnt;
+
+	b2 = cnt;
+
+	if (m > 0)
+	{
+		cnt = max(x, a2 - m);
+		a2 = cnt;
+	}
+
+	ans2 = a2 * b2;
+
+	ans = min (ans1, ans2);
 
 	pfll(ans);
 	

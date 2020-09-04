@@ -11,29 +11,23 @@ typedef long long ll;
 #define pfll(x) printf("%lld\n", x)
 #define yes printf("YES\n")
 #define no printf("NO\n")
+#define pb(x) push_back(x)
 
 using namespace std;
 
 void solve()
 {
-	ll p, f; cin >> p >> f;
+	ll ans(0), cnt(0), mx(0);
+
+	ll a, b; cin >> a >> b;
 	
-	ll cntS, cntW; cin >> cntS >> cntW;
+	ans = abs(b - a) / 10;
 
-	ll s, w; cin >> s >> w;
+	if (abs(b - a) % 10 != 0)
+		ans += 1;
 
-	if (s > w)
-	{
-		ll temp = s; s = w; w = s;
-		temp = cntS; cntS = cntW; cntW = cntS;
-	}
-
-	ll cnt(0);
+	pfll(ans);
 	
-	// Clalc using itr
-
-	cout << cnt << endl;
-
 	return;
 }
 

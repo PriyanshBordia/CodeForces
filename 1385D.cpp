@@ -23,19 +23,15 @@ int calc(const string &s, char c)
 
 int main()
 {
-	int t;
-	cin >> t;
+	int t; cin >> t;
 
 	while (t--)
 	{
-		int n;
-		cin >> n;
+		int n; cin >> n;
 
-		string s;
-		cin >> s;
+		string s; cin >> s;
 
-		cout << calc(s, 'a') << endl;
-		
+		cout << calc(s, 'a') << endl;	
 	}
 	
 	return 0;
