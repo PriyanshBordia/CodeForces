@@ -1,14 +1,23 @@
 #include <iostream>
 
+typedef long long ll;
+
 using namespace std;
 
 int main()
 {
-	int n; cin >> n;
+	ll n; cin >> n;
 
-	int a[n]; for(int i = 0; i < n; i++) cin >> a[i];
+	ll ans(0);
+ 
+	while (n--)
+	{
+		ll a; cin >> a;
+		
+		ans = ans + a - 1;
 
-	
-	
+		(ans & 1) ? cout << "1\n" : cout << "2\n";
+	}	
+
 	return 0;
 }
