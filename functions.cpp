@@ -9,6 +9,14 @@ bool isPerfectSquare(long double x)
 	return (sr - floor(sr) == 0);
 } 
 
+ll gcd(ll a, ll b)
+{
+	if (b == 0)
+		return a;
+	else
+		return gcd(b, a % b);
+}
+
 ll lcm(ll a, ll b)
 {
 	ll k(0);

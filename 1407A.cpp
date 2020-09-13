@@ -20,79 +20,45 @@ void solve()
 	vector<int> v01;
 	vector<int> v10;
 
-	int c01(0), c10(0);
-
 	ll ans(0), cnt(0), mx(0), mn(100000000);
 
-	int n; cin >> n;
+	ll cnt1(0), cnt0(0);
 
-	int a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
+	ll n; cin >> n;
+
+	ll a[n + 1];
+	for (int i = 1; i <= n; i++) 
+	{
+		cin >> a[i];
+
+		(a[i] == 1) ? cnt1++ : cnt0++;
+	}
 	
-	int i = 1, j = 2; 
-	while (i < n && j <= n)
+	if (cnt1 > cnt0)
 	{
-		if (a[i] == 0 && a[j] == 1)
-		{
-			c01++;
-			v01.pb(i);
-			v01.pb(j);
-		}
-
-		else if (a[i] == 1 && a[j] == 0)
-		{
-			c10++;
-			v10.pb(i);
-			v10.pb(j);
-		}
-
-		i += 2; j += 2;
-	}
-
-	if (n == 2)
-	{
-		if (a[1] != a[2])
-		{
-			if (a[1] == 1)
-				a[1] = -1;
-			else
-				a[2] = -1;
-			cnt = 1;
-		}
-	}
-
-else
-{
-	if (v10.size() > v01.size())
-	{
-		int k = v10.size();
-		for (int i = 0; i < v10.size() - 1 && k != v01.size(); i++)
-		{
-			a[v10[i]] = -1; a[v10[i + 1]] = -1;
-
-			cnt += 2;
-			k--;
-		}
-	}
-
-	else if (v10.size() < v01.size())
-	{
-		int k = v01.size();
-		for (int i = 0; i < v01.size() - 1 && k != v10.size(); i++)
-		{
-			a[v01[i]] = -1; a[v01[i + 1]] = -1;
-
-			cnt += 2;
-			k--;
-		}
-	}
-}
-
-	cout << n - cnt << endl;
+		cnt1 = cnt1 - cnt1 % 2;
+		cout << cnt1 << endl;
 		
-	for (int i = 1; i <= n; i++)
+		int i = 1; 
+		while (cnt1 > 0 && i <= n)
+		{
+			if (a[i])
+			{
+				cout << a[i] << " ";
+				cnt1--;
+			}
+			i++;
+		}
+	}
+
+	else
 	{
-		if (a[i] !=	-1)
-			cout << a[i] << " "; 
+		cout << cnt0 << endl;
+		for (int i = 1; i <= n; i++)
+		{
+			if (!a[i])
+				cout << a[i] << " ";
+		}
 	}
 
 	cout << endl;

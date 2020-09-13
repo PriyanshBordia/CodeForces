@@ -17,11 +17,13 @@ using namespace std;
 
 void solve()
 {
+	ll ans(0), cnt(0), mx(0), mn(100000000);
+	
+	vector<ll> v;	set<ll> s;	map<ll, ll> m;
+
 	ll n; cin >> n;
 
 	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
-
-	ll ans(0), cnt(0), mx(0), mn(100000000);
 
 	string s; cin >> s;
 
