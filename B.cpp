@@ -26,14 +26,28 @@ void solve()
 
 	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
 
-	string s; cin >> s; n = s.size();
+	ll lock[n]; for (int i = 0; i < n; i++) cin >> lock[i];
 	
 	for (int i = 0; i < n; i++)
 	{
+		if (lock[i] == 0 && a[i] > 0)
+		{
+			for (int j = i + 1; j < n; j++)
+			{
+				if (lock[j] == 0)
+				{
+					if (a[i] > a[j])
+						swap(a[i], a[j]);
+				}
+			}
 
+		}
 	}
 	
-	pfll(ans);
+	for (int i = 0; i < n; i++)
+		cout << a[i] << " ";
+
+	cout << endl;
 
 	return;
 }

@@ -20,18 +20,17 @@ void solve()
 	vector<ll> v;	set<ll> st;		map<ll, ll> m;
 
 	ll ans(0), cnt(0), mx(0), mn(100000000);
+
+	ll x, y, k; cin >> x >> y >> k;
 	
-
-	ll n; cin >> n;
-
-	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
-
-	string s; cin >> s; n = s.size();
-	
-	for (int i = 0; i < n; i++)
+	int i = 1;
+	while (x < (k * (y + 1)))
 	{
-
+		x = pow(x, i);
+		i++;
 	}
+
+	ans = i;
 	
 	pfll(ans);
 
@@ -47,3 +46,4 @@ int main()
 
 	return 0;
 }
+// 1 -> 2 -> 4 -> 8 -> 16
