@@ -74,3 +74,17 @@ int main()
 	clock_t end = clock();
 
 	cout << double(end - start) / CLOCKS_PER_SEC << endl;
+
+#include <iostream>
+
+using namespace std;
+
+void solve()
+{
+
+}
+
+int main()
+{
+
+}

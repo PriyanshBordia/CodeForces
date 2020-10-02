@@ -39,43 +39,41 @@ void solve()
 	{		
 		if (cnt[i] == 0)
 		{
-			// cout << i<<endl;
 			z = i;
 			break;
 		}
 	}
 
 		
-		ll flag(0);
+	ll flag(0);
 
-		int i = 0; 
-		while (i < 101)	
+	int i = 0; 
+	while (i < 101)	
+	{
+		if (cnt[i] == 1 && flag == 1);
+
+		else if (cnt[i] == 1 && flag == 0)
 		{
-			if (cnt[i] == 1 && flag == 1);
-
-			else if (cnt[i] == 1 && flag == 0)
-			{
-				mx += i; flag = 1;
-			}
-
-			else if (cnt[i] == 0 && flag == 1)
-			{
-				mx += i;
-				break;
-			}
-
-			else if (cnt[i] == 0 && flag == 0)
-			{
-				mx += 2 * i;
-				break;
-			}
-
-			i++;
+			mx += i; flag = 1;
 		}
 
-		// cout << mx << " "<<z << " ";
+		else if (cnt[i] == 0 && flag == 1)
+		{
+			mx += i;
+			break;
+		}
 
-		ans = max(z, mx);
+		else if (cnt[i] == 0 && flag == 0)
+		{
+			mx += 2 * i;
+			break;
+		}
+
+		i++;
+	}
+
+
+	ans = max(z, mx);
 
 	pfll(ans);
 
