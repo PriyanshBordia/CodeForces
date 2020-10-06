@@ -6,7 +6,7 @@
 #include <vector>
 #include <map>
 #include <set>
-typedef long long ll;
+typedef unsigned long long ll;
 #define scll(x) scanf("%lld", &x)
 #define pfll(x) printf("%lld\n", x)
 #define yes printf("YES\n")
@@ -17,33 +17,31 @@ using namespace std;
 
 void solve()
 {
-	vector<ll> v;	set<ll> st;		map<ll, ll> m;
+	string s; cin >> s;
 
-	ll ans(0), cnt(0), mx(0), mn(100000000);
-
-	ll x, y, k; cin >> x >> y >> k;
-	
-	int i = 1;
-	while (x < (k * (y + 1)))
+	ll sum(stoi(s));
+	for (int len = 1; len < s.size(); len++)
 	{
-		x = pow(x, i);
-		i++;
+		for (int i = 0; i <= s.size() - len; i++)
+		{
+			string t = s.substr(i, len);
+
+			cout << t << endl;
+			sum -= stoi(t);
+		}
 	}
 
-	ans = i;
+	cout << sum << endl;
 	
-	pfll(ans);
-
 	return;
 }
 
 int main()
 {
-	ll t = 1; scll(t);
+	ll t = 1; //scll(t);
 	
 	while (t--)
 		solve();
 
 	return 0;
 }
-// 1 -> 2 -> 4 -> 8 -> 16

@@ -1,21 +1,27 @@
 #include <iostream>
 #include <math.h>
 
+#define yes printf("YES\n")
+#define no printf("NO\n")
+
 using namespace std;
 
 void solve()
 {
-	int n, x; cin >> n >> x;
+	int n, m; cin >> n >> m;
 
-	int ans(0);
+	int flag(0);
+	while (n--)
+	{
+		int a[2][2];
+		cin >> a[0][0] >> a[0][1];
+		cin >> a[1][0] >> a[1][1];
 
-	if (n <= 2)
-		ans = 1;
-	
-	else
-		ans = ceil((n - 2) / (x * 1.0)) + 1;
+		if (a[0][1] == a[1][0]) 
+			flag++;
+	}
 
-	cout << ans << endl;
+	(flag >= 1 && m % 2 == 0) ? yes : no;
 
 	return;
 }
@@ -25,9 +31,7 @@ int main()
 	int t; cin >> t;
 
 	while (t--)
-	{
 		solve();
-	}
 
 	return 0;
 }

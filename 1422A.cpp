@@ -17,22 +17,38 @@ using namespace std;
 
 void solve()
 {
-	ll n; cin >> n;
+	ll ans(0), cnt(0), mx(0), mn(100000000);
 
-	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
+	ll a, b, c; cin >> a >> b >> c;
 
-	ll ans(0);
+	if (a == b && b == c) ans = a;
+
+	else if (a == b) ans = c;
+
+	else if (b == c) ans = a;
+
+	else if (a == c) ans = b;
+
+	else
+	{	
+		mx = max(a, max(b, c));
+		mn = min(a, min(b, c));
+
+		if (a > mn && a < mx)
+			ans = a;
+
+		else if (b > mn && b < mx)
+			ans = b;
+
+		else
+			ans = c;
+
+		ans = ceil(sqrt(pow(mn, 2) + pow(mx - ans, 2)));
+
+	}	
 
 	pfll(ans);
 
-
-	string s; cin >> s;
-
-	for (int i = 0; i < s.size(); i++)
-	{
-
-	}
-	
 	return;
 }
 

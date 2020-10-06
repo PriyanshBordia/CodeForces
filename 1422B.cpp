@@ -17,37 +17,30 @@ using namespace std;
 
 void solve()
 {
-	vector<ll> v;	set<ll> st;		map<ll, ll> m;
-
 	ll ans(0), cnt(0), mx(0), mn(100000000);
-	
 
-	ll n; cin >> n;
+	ll n, m; cin >> n >> m;
 
-	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
-
-	ll lock[n]; for (int i = 0; i < n; i++) cin >> lock[i];
-	
-	for (int i = 0; i < n; i++)
+	ll a[n][m]; 
+	for (int i = 0; i < n; i++) 
 	{
-		if (lock[i] == 0 && a[i] > 0)
+		for (int j = 0; j < m; j++)
 		{
-			for (int j = i + 1; j < n; j++)
-			{
-				if (lock[j] == 0)
-				{
-					if (a[i] > a[j])
-						swap(a[i], a[j]);
-				}
-			}
+			cin >> a[i][j];
 
+			mx = max(mx, a[i][j]);
+		}
+	}
+
+	for (int i = 0; i < n; i++) 
+	{
+		for (int j = 0; j < m; j++)
+		{
+			ans += mx - a[i][j];
 		}
 	}
 	
-	for (int i = 0; i < n; i++)
-		cout << a[i] << " ";
-
-	cout << endl;
+	pfll(ans);
 
 	return;
 }
