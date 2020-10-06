@@ -9,13 +9,14 @@ int main()
 {
 	int n; cin >> n;
 	
-	int x, y; cin x;
+	int x, y; 
+
+	int z; cin >> z;
 
 	while (n--)
 	{
 		cin >> x >> y;
-
-		
+	
 	}
 
 	return 0;

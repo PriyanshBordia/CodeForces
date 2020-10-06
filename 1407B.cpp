@@ -11,7 +11,7 @@ typedef long long ll;
 
 using namespace std;
 
-ll  gcd(ll  a, ll  b)
+ll gcd(ll a, ll b)
 {
 	if (b == 0)
 		return a;
@@ -26,23 +26,30 @@ void solve()
 	ll a[n]; for (ll i = 0; i < n; i++) { cin >> a[i]; }
 
 	sort(a, a + n);
+	reverse(a, a + n);
 
-	ll i = n - 1; 
-	while (i >= 0)
+	ll mx = a[0];
+
+	cout << mx << " ";
+
+	ll index(0); 
+	for (int i = 1; i < n; i++)
 	{
-		ll k = i, z = a[i];
-		while (k >= 0)
-		{			
-			if (a[k] != -1 && ((z % a[k] == 0) || gcd(z, a[k]) > 1) )
+		ll gc = 0;
+		for (int j = 1; j < n; j++)
+		{
+			if (a[j] != -1 && gcd(mx, a[j]) > gc)
 			{
-				cout << a[k] << " ";
-				a[k] = -1;
+				index = j;
+				gc = gcd(mx, a[j]);
 			}
-
-			k--;
 		}
 
-		i--;
+		mx = gcd(a[index], mx);
+
+		cout << a[index] << " ";
+
+		a[index] = -1;
 	}
 	
 	cout << endl;
