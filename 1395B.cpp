@@ -18,21 +18,45 @@ void solve()
 {
 	ll n, m, x, y; cin >> n >> m >> x >> y;
 
-	int a[n + 1][m + 1] = { 0 };
-	for (int i = 0; i <= n; i++)
-	{
-		for (int j = 0; j <= m; j++)
-			a[i][j] = ((i == x && j == y) ? 1 : 0);
-	}
+	int a[n + 1][m + 1];
 
 	for (int i = 1; i <= n; i++)
 	{
 		for (int j = 1; j <= m; j++)
 		{
-			if ()
+			a[i][j] = 0;
 		}
 	}
-	
+
+	for (int i = 1; i <= n * m; i++)
+	{
+		cout << x << " " << y << endl;
+			
+		a[x][y] = 1;
+		
+		int flag(0);
+		for (int j = 1; j <= n; j++)
+		{
+			if (a[j][y] == 0)
+			{
+				x = j; flag = 1;
+				break;
+			}
+		}
+
+		if (!flag)
+		{
+			for (int j = 1; j <= m; j++)
+			{
+				if (a[x][j] == 0)
+				{
+					y = j;
+					break;
+				}
+			}	
+		}		
+	}
+
 	return;
 }
 
