@@ -17,9 +17,9 @@ using namespace std;
 
 void solve()
 {
-	ll ans(0), cnt(0), mx(0), mn(100000000);
+	ll ans(0), cnt(0), mx(0), mn(1e09);
 	
-	vector<ll> v;	set<ll> st;	map<ll, ll> m;
+	vector<ll> v;	set<ll> st;		map<ll, ll> m;
 
 	ll n; cin >> n;
 
