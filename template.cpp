@@ -17,7 +17,7 @@ using namespace std;
 
 void solve()
 {
-	ll ans(0), cnt(0), mx(0), mn(100000000);
+	ll ans(0), sum(0), cnt(0), mx(0), mn(100000000);
 	
 	vector<ll> v;	set<ll> st;	map<ll, ll> m;
 

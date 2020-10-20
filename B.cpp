@@ -17,7 +17,7 @@ using namespace std;
 
 void solve()
 {
-	ll ans(0), cnt(0), mx(1), mn(-1);
+	ll ans(0), cnt(0), mx(0), mn(1e09);
 	
 	vector<ll> v;	set<ll> st;		map<ll, ll> m;
 
@@ -26,26 +26,29 @@ void solve()
 	ll a[n + 1]; 
 	for (int i = 1; i <= n; i++) 
 	{
-		cin >> a[i];
+		cin >> a[i]; 
+		if (a[i] == 0) 
+			mx++; 
 	}
 
-
-	for (int i = 1; i <= n; ++i)
+	for(int i = n; i > 0; i--)
 	{
-		if (a[i] >= a[mx] && ((i - 1 > 0 && a[i - 1] < a[i]) || (i + 1 <= n && a[i + 1] < a[i])))
-		{
-			mx = i;
-		}
-
-		if (i > 1 && a[i] != a[i - 1])
-			mn = 1;
+		if (a[i] == 1)
+			break;
+		else
+			mx--;
 	}
 
-	if (mn == -1)
-		pfll(mn);
+	for (int i = 1; i <= n; i++)
+	{
+		if (a[i] == 1)
+			break;
 
-	else
-		pfll(mx);
+		else 
+			mx--;
+	}
+	
+	pfll(mx);
 
 	return;
 }
