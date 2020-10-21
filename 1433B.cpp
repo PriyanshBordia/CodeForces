@@ -25,8 +25,31 @@ void solve()
 
 	ll a[n + 1]; 
 	
+	for (int i = 1; i <= n; i++) 
+	{
+		cin >> a[i]; 
+		if (a[i] == 0) 
+			mx++; 
+	}
+
+	for(int i = n; i > 0; i--)
+	{
+		if (a[i] == 1)
+			break;
+		else
+			mx--;
+	}
+
+	for (int i = 1; i <= n; i++)
+	{
+		if (a[i] == 1)
+			break;
+
+		else 
+			mx--;
+	}
 	
-	pfll(ans);
+	pfll(mx);
 
 	return;
 }

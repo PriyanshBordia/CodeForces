@@ -17,16 +17,31 @@ using namespace std;
 
 void solve()
 {
-	ll ans(0), cnt(0), mx(0), mn(1e09);
+	ll ans(0), cnt(0), mx(1), mn(-1);
 	
 	vector<ll> v;	set<ll> st;		map<ll, ll> m;
 
 	ll n; cin >> n;
 
-	ll a[n + 1]; 
-	
-	
-	pfll(ans);
+	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
+
+
+	for (int i = 1; i <= n; ++i)
+	{
+		if (a[i] >= a[mx] && ((i - 1 > 0 && a[i - 1] < a[i]) || (i + 1 <= n && a[i + 1] < a[i])))
+		{
+			mx = i;
+		}
+
+		if (i > 1 && a[i] != a[i - 1])
+			mn = 1;
+	}
+
+	if (mn == -1)
+		pfll(mn);
+
+	else
+		pfll(mx);
 
 	return;
 }

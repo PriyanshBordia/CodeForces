@@ -23,21 +23,9 @@ void solve()
 
 	ll n; cin >> n;
 
-	// ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
+	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
 
-	string s;
-
-	s = to_string(n);
-
-	cnt = int(s[0] - '0');
-
-	ans = 10 * (cnt - 1) + s.size() * (s.size() + 1) / 2;
-
-	// if (s.size() == 1)
-	// 	ans +=1;
-	// else if (s.zi)
-
-
+	string s; cin >> s;
 
 	// for (int i = 0; i < s.size(); i++)
 	// {

@@ -17,15 +17,20 @@ using namespace std;
 
 void solve()
 {
-	ll ans(0), cnt(0), mx(0), mn(1e09);
+	ll ans(1), sum(0), cnt(0), mx(0), mn(1e18);
 	
 	vector<ll> v;	set<ll> st;		map<ll, ll> m;
 
 	ll n; cin >> n;
 
-	ll a[n + 1]; 
-	
-	
+	string s;
+
+	s = to_string(n);
+
+	cnt = int(s[0] - '0');
+
+	ans = 10 * (cnt - 1) + s.size() * (s.size() + 1) / 2;
+
 	pfll(ans);
 
 	return;
