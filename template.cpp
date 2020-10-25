@@ -17,10 +17,10 @@ using namespace std;
 
 void solve()
 {
-	ll ans(0), sum(0), cnt(0), mx(0), mn(100000000);
+	vector<ll> v;	set<ll> st;	map<ll, ll> mp;
 	
-	vector<ll> v;	set<ll> st;	map<ll, ll> m;
-
+	ll ans(0), sum(0), cnt(0), mx(-1), mn(1000000000);
+	
 	ll n; cin >> n;
 
 	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];

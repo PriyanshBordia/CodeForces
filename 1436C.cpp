@@ -25,7 +25,9 @@ void solve()
 		int middle = (left + right) / 2;
 
 		if (middle == pos)
-			break;
+		{
+			left = middle + 1;
+		}
 
 		else if (pos < middle)
 		{

@@ -2,6 +2,30 @@
 
 	for (ll i = 0; i < n; i++){ pfll(a[i]); }
 
+int fact(int n)
+{
+	int ans(1);
+	for (int i = 2; i <= n; ++i)
+	{
+		ans *= n;
+	}
+
+	return ans;
+}
+
+ll modfact(ll n)
+{
+	ll ans(1);
+	for (ll i = 2; i <= n; ++i)
+	{
+		ans *= n;
+		ans = ans % ll(1e09 + 7);
+	}
+
+	return ans;
+}
+
+
 bool isPerfectSquare(long double x)
 {
 	long double sr = sqrt(x);
