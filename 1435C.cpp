@@ -17,37 +17,41 @@ using namespace std;
 
 void solve()
 {
+	set<ll> v;
+
 	ll ans(100000000000000), sum(0), cnt(0), mx(0), mn(100000000);
 	
 	ll s[6]; for (int i = 0; i < 6; ++i) cin >> s[i];
 
-	sort(s, s + 6);
+	// sort(s, s + 6);
 
 	ll n; cin >> n;
 
 	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
 
-	sort(a, a + n);
+	// sort(a, a + n);
 
 	for (int i = 0; i < n; i++)
 	{
 		for (int j = 0; j < 6; j++)
 		{
-			mx = a[i] - s[j];
-
-			for (int k = 0; k < n; k++)
-			{
-				for (int p = 0; p < 6; p++)
-				{
-					mn = a[k] - s[p];
-					
-					ans = min(ans, abs(mx - mn));
-				}
-			}
+			v.insert(a[i] - s[j]);
 		}
 	}
 
-	ans = a[n - 1] - s[5] - a[0] + s[0];
+	for (int p = 0; p < v.size(); p++)
+		{
+			cout << v[p]<< " ";
+		}
+
+	for (int k = 0; k < v.size(); k++)
+	{
+		for (int p = k + 1; p < v.size(); p++)
+		{
+			// if (v[p] != v[k])
+			ans = min(ans, v[p] - v[k]);
+		}
+	}
 
 	pfll(ans);
 

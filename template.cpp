@@ -25,6 +25,11 @@ void solve()
 
 	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
 
+	for (ll i = 1; i <= n; i++)
+	{
+
+	}
+	
 	string s; cin >> s;
 
 	for (int i = 0; i < s.size(); i++)
