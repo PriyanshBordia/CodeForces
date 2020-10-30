@@ -23,7 +23,7 @@ void solve()
 	
 	ll l, r; cin >> l >> r;
 
-	if ((r + 1) / 2 < l)
+	if (double(r + 1) / 2 <= (double)l)
 	{
 		yes;
 		return;
