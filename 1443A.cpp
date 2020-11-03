@@ -17,20 +17,38 @@ using namespace std;
 
 void solve()
 {
-	vector<ll> v;	set<ll> st;	map<ll, ll> mp;
+	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
 	
-	ll ans(0), sum(0), cnt(0), mx(-1), mn(1000000000);
+	ll ans(4), sum(0), cnt(0), mx(-1), mn(1000000000);
 	
 	ll n; cin >> n;
-	
-	string s; cin >> s;
 
-	for (int i = 0; i < s.size(); i++)
+	if (n > 2)
+		ans = (n - 1) * 2;
+
+	while (cnt < n)
 	{
+		int flag = 0;
+		for (int i = 0; i < v.size(); i++)
+		{
+			if (ans % v[i] == 0)
+			{
+				flag = 1;
+				break;
+			}
+		}
+		
+		if (!flag)		
+		{
+			cout << ans << " ";
+			cnt++;
+			v.pb(ans);
+		}
 
+		ans += 2;
 	}
 	
-	pfll(ans);
+	cout << endl;
 
 	return;
 }

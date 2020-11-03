@@ -21,14 +21,50 @@ void solve()
 	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1000000000);
 	
-	ll n; cin >> n;
+	ll a, b; cin >> a >> b;
 	
 	string s; cin >> s;
 
+	sum = count(s.begin(), s.end(), '1');
+
+	cout <<sum << " ";
+sum = 0;
 	for (int i = 0; i < s.size(); i++)
 	{
+		if (s[i] == '1')
+		{
+			while (s[i] == '1')
+			{
+				sum++;
+				i++;
+			}
 
+			while (s[i] == '0')
+			{
+				cnt++; i++;
+			}
+
+			if (cnt * (b + a) <= sum * a)
+			{
+				ans += cnt * (b + a);
+				i -= 1; s[i] = '1';
+			}
+
+			else
+				ans += sum * a;
+
+			cnt = 0;
+			sum = 0;
+		}
 	}
+	
+	sum = count(s.begin(), s.end(), '1');
+
+	cout << sum << endl;
+
+	ans = min(sum, ans);
+
+	cout << s << endl;
 	
 	pfll(ans);
 

@@ -23,33 +23,6 @@ void solve()
 	
 	ll n; cin >> n;
 
-	if (n > 2)
-		ans = (n - 1) * 2;
-
-	while (cnt < n)
-	{
-		int flag = 0;
-		for (int i = 0; i < v.size(); i++)
-		{
-			if (ans % v[i] == 0)
-			{
-				flag = 1;
-				break;
-			}
-		}
-		
-		if (!flag)		
-		{
-			cout << ans << " ";
-			cnt++;
-			v.pb(ans);
-		}
-
-		ans += 2;
-	}
-	
-	cout << endl;
-
 	return;
 }
 
