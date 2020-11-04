@@ -30,12 +30,20 @@ void solve()
 
 	else
 	{	
-		ll j = p / q;
-		
-		while (p % j != 0)
-			j += 1;
+		ll j = 1;
+		while (ans >= 1)
+		{	
+			if (ans % q != 0)
+			{
+				ans = p * j;
+				break;
+			}
 
-		ans = p / j;
+			j++; 
+			if (p % )ans = p / j;
+
+			pfll(ans);
+		}
 	}
 
 	pfll(ans);
