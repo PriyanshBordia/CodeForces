@@ -22,22 +22,18 @@ void solve()
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1000000000);
 	
 	ll n; cin >> n;
-
-	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
-
-	for (ll i = 1; i <= n; i++)
-	{
-
-	}
 	
-	string s; cin >> s;
-
-	for (int i = 0; i < s.size(); i++)
+	ll a[n + 1]; 
+	for (int i = 1; i <= n; i++) 
 	{
-
+		cin >> a[i];
+		st.insert(a[i]);
 	}
+
 	
-	pfll(ans);
+	(st.size() != n) ? yes : no;
+	
+	// pfll(ans);
 
 	return;
 }
