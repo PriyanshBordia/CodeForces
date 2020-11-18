@@ -21,22 +21,19 @@ void solve()
 	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1000000000);
 	
-	ll n; cin >> n;
+	ll n, c0, c1, h; cin >> n >> c0 >> c1 >> h;
 
-	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
-
-	for (ll i = 1; i <= n; i++)
-	{
-
-	}
-	
 	string s; cin >> s;
 
-	for (int i = 0; i < s.size(); i++)
-	{
+	sum = count(s.begin(), s.end(), '0');
+	cnt = n - sum;
 
-	}
+	ans = sum * c0 + cnt * c1;
+
 	
+
+	ans = min(ans , min(sum * (h + c1) + cnt * (h + c0), min(sum * c0 + cnt * (h + c0), sum * (h + c1) + cnt * c1)));
+
 	pfll(ans);
 
 	return;

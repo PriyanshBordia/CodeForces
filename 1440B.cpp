@@ -21,49 +21,19 @@ void solve()
 	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1000000000);
 	
-	ll n; cin >> n;
+	ll n, k; cin >> n >> k;
 
-	cout << n << endl;
+	ll a[n * k + 1]; for (int i = 1; i <= n * k; i++) cin >> a[i];
 
-	int a[n + 1];
-	for (int i = 1; i <= n; i++)
+	mn = ceil(n * 1.0 / 2);
+
+	
+	for (ll i = k * (mn - 1) + 1; i <= n * k; i += (n - mn + 1))
 	{
-		a[i] = i;
+		sum += a[i];
 	}
 
-	for (int i = 1; i <= n; i++)
-	{
-
-		a[i] = i;
-	}
-	
-	// 1 2 3
-	// 2 2 4
-	// 4 4 4
-	
-	// 2
-	// 1 2
-
-	// 1 2 3 4 5
-	// 2 3 3 5 6
- //    3 4 4 5 7
- //    4 5 4 6 8
- //    5 5 5 7 9
-	// 7 7 7 7 11
-	// 11 11 11 11 11
-
-	// 6
-	// 3 4 3 2 4 5
-
-	// 1 2 3 4
-	// 2 3 3 5
- //    3 4 3 6
- //    4 4 4 7
-	// 7 7 7 7
-	// 4
-	// 1 1 1 3 2 
-	
-	pfll(ans);
+	pfll(sum);
 
 	return;
 }
