@@ -15,65 +15,59 @@ typedef long long ll;
 
 using namespace std;
 
+int checkPos(int b[], int x, int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		if (b[i] == x)
+		{
+			return (i + 1);
+		}
+	}
+
+	return -1;
+}
+
 void solve()
 {
 	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
 	
-	ll ans(0), sum(0), cnt[1000001], mx(0), mn(0);
-	
-	for (ll i = 1; i < 100000; i++)
-		cnt[i] = 0;
+	ll ans(-1);
 
-	ll n; cin >> n;
+	int n; cin >> n;
 
-	ll a[n + 1]; 
-
-	for (int i = 1; i <= n; i++) 
-	{ 
-		cin >> a[i]; 
-		
-		cnt[a[i]]++; 
-
-		st.insert(a[i]); 
-
-		if (a[i] > mx)
-			mx = a[i];
-	} 
+	int a[n], b[n]; for (int i = 0; i < n; i++){ cin >> a[i]; b[i] = a[i]; st.insert(a[i]); }
 
 	if (n == 1)
-	{
-		cout << "1\n";
-		return;
-	}
+		ans = 1;
 
-	else if (st.size() == 1)
+	else if (st.size() != 1)
 	{
-		cout << "-1\n";
-		return;
-	}
+		sort (a, a + n);
 
-	else
-	{
-		for (int i = 1; i <= mx; i++)
+		for (int i = 0; i < n; i++)
 		{
-			if (cnt[i] == 1)
+			if ((i - 1 >= 0 && a[i] != a[i - 1]) && (i + 1 < n && a[i] != a[i + 1]))
 			{
-				ans = i;
+				ans = checkPos(b, a[i], n);
+				break;
+			}
+
+			else if (i == n - 1 && a[i] != a[i - 1])
+			{
+				ans = checkPos(b, a[i], n);
+				break;
+			}
+
+			else if (i == 0 && a[i] != a[i + 1])
+			{
+				ans = checkPos(b, a[i], n);
 				break;
 			}
 		}
-
-		for (int i = 1; i <= n; i++)
-		{
-			if (a[i] == ans)
-			{
-				cout << i << endl;
-				return;
-			}
-		}
-
-		cout << "-1\n";
 	}
+
+	pfll(ans);
 
 	return;
 }

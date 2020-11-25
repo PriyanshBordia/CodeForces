@@ -53,13 +53,29 @@ void solve()
 
 	else
 	{
-		int t = 0;
-		ll temp = n, i = 2;
-		while (i < sqrt(temp) && temp > 1)
+		ll cnt(0), temp(n), t(0), j(2);
+		for (int i = 2; i <= sqrt(n); i++)
 		{
-			while (temp % (i * i) == 0)
-			{				
-				// cout << i << " ";
+			temp = n, cnt = 0;
+			while (temp % i == 0)
+			{
+				temp /= i;
+				cnt++;
+			}
+
+			if (cnt > t)
+			{
+				t = cnt; j = i; 
+			}
+		}
+		
+		t = 0; temp = n;
+	
+		ll i = j;
+		while (i <= sqrt(temp) && temp > 1)
+		{
+			while (temp % (i * i) == 0 && i <= sqrt(temp) && temp > 1)
+			{		
 				if (v.size() == 0)
 				{
 					assert (i != 0);
@@ -92,13 +108,14 @@ void solve()
 		t += to_string(temp).size();
 		k++;
 
-		if (t < k)
+		if (t >= (to_string(n).size()))
 		{
 			cout << k << endl;
 
 			for (int i = 0; i < v.size(); i++)
 				cout << v[i] << " ";
 		}
+
 		else
 		{
 			cout << "1\n" << n;
