@@ -5,9 +5,9 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-	int x = 123456;
-	string s = to_string(x);
-	cout << s.size() << endl;
+	int x = 7;
+	
+	for (int i = n; i >= n / 2)
 
 	return 0;
 }
