@@ -21,21 +21,9 @@ void solve()
 	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1000000000);
 	
-	ll n; cin >> n;
+	ll n, m, r, c; cin >> n >> m >> r >> c;
 
-	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
-
-	for (ll i = 1; i <= n; i++)
-	{
-
-	}
-	
-	string s; cin >> s;
-
-	for (int i = 0; i < s.size(); i++)
-	{
-
-	}
+	ans += max(abs(n - r), r - 1) + max(abs(m - c), c - 1);
 	
 	pfll(ans);
 
