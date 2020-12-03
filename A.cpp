@@ -19,11 +19,13 @@ void solve()
 {
 	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
 	
-	ll ans(1100000000), cnt(0), mx(-1), mn(1000000000);
+	ll ans(0), sum(0), cnt(0), mx(-1), mn(1000000000);
 	
-	ll x, y; cin >> x >> y;
+	string s; cin >> s;
+
+	ans = s.size();
 	
-	cout << x - 1 << " " << y << endl;
+	pfll(ans);
 
 	return;
 }

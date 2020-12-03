@@ -19,11 +19,31 @@ void solve()
 {
 	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
 	
-	ll ans(1100000000), cnt(0), mx(-1), mn(1000000000);
+	ll ans(0), sum(0), cnt(0), mx(-1), mn(1000000000);
 	
-	ll x, y; cin >> x >> y;
-	
-	cout << x - 1 << " " << y << endl;
+	ll x; cin >> x;
+
+	ll i = 1; 
+	while (ans < x)
+	{
+		ans += i;
+		i++;
+	}
+
+	min(ans - x + i - 1, );
+	if (x == ans - 1)
+	{
+		cnt = i;
+		// cnt = min()
+	}
+
+	else if (x == (ans - (i - 1) + 1))
+		cnt = i - 1;
+
+	else
+		cnt = i - 1 + ans - x;
+
+	pfll(cnt);
 
 	return;
 }
