@@ -21,33 +21,30 @@ void solve()
 	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1000000000);
 	
-	ll n; cin >> n;
-	
-	string s; cin >> s;
+	ll x; cin >> x;
 
-	if (s[0] == '2')
+	ll i = 1; 
+	while (ans < x)
 	{
-		if (s[1] == '0' && s[2] == '2' && s[3] == '0')
-			yes;
-		
-		else if (s[1] == '0' && s[2] == '2' && s[n - 1] == '0')
-			yes;
-
-		else if (s[1] == '0' && s[n - 2] == '2' && s[n - 1] == '0')
-			yes;
-
-		else if (s[n - 3] == '0' && s[n - 2] == '2' && s[n - 1] == '0')
-			yes;
-		else
-		no;
+		ans += i;
+		i++;
 	}
 
-	else if (s[n - 4] == '2' && s[n - 3] == '0' && s[n - 2] == '2' && s[n - 1] == '0')
-		yes;
-	
+	min(ans - x + i - 1, );
+	if (x == ans - 1)
+	{
+		cnt = i;
+		// cnt = min()
+	}
+
+	else if (x == (ans - (i - 1) + 1))
+		cnt = i - 1;
+
 	else
-		no;
-	
+		cnt = i - 1 + ans - x;
+
+	pfll(cnt);
+
 	return;
 }
 

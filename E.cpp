@@ -19,38 +19,48 @@ void solve()
 {
 	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
 	
-	ll ans(0), sum(0), cnt(0), mx(-1), mn(1000000000);
+	ll ans(0), sum(0), cnt(0), mx(2), mn(1000000000);
 	
 	ll n; cin >> n;
 
-	if (n < 10)
-		pfll(n);
+	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
 
-	else
+	sort (a, a + n);
+
+	for (int i = 0; i < n - 2; i++)
 	{
-		string t = "";
-		int i = 9, temp = n;
-		while (i > 0 && (temp - i) > 0)
+		// cout << a[i] << " ";
+		for (int k = mx; k < n; k++)
 		{
-			temp -= i;
-			t = char(i + '0') + t;
-			i--;
+			// cout << a[k] << " " ;
+			mx = k;
+
+			if ((a[k] - a[i]) <= 2)
+				cnt++;
+
+			else
+				break;			
 		}
 
-		t = char(temp + '0') + t; 
+		// cout << cnt << endl;
 
-		(i > 0) ? cout << t << endl : cout << "-1\n";
+		ans += (cnt * (cnt + 1) / 2); 
+		cnt = 0;
 	}
+
+	pfll(ans);
 
 	return;
 }
 
+// 1 1 2 2 3 4 5 6 8 9 
+
+// 6 + 0 + 1 + 1 + 1 
+
 int main()
 {
-	ll t = 1; scll(t);
+	ll t; cin >> t;
 	
-	while (t--)
+	while(t--)
 		solve();
-
-	return 0;
 }

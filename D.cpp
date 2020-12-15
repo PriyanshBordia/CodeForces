@@ -23,21 +23,30 @@ void solve()
 	
 	ll n; cin >> n;
 
-	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
+	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
 
-	for (ll i = 1; i <= n; i++)
+	for (ll i = 2; i <= n; i++)
 	{
+		if (a[i] != a[i - 1] && a[i - 1] != -1)
+		{
+			a[i] += a[i - 1];
+			a[i - 1] = -1;
+			cnt++;
+		}
 
+		else if (a[i] != a[i + 1]&& a[i - 1] != -1)
 	}
 	
-	string s; cin >> s;
 
-	for (int i = 0; i < s.size(); i++)
-	{
-
-	}
-	
 	pfll(ans);
 
 	return;
+}
+
+int main()
+{
+	ll t; cin >> t;
+	
+	while(t--)
+		solve();
 }

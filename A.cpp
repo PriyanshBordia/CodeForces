@@ -21,11 +21,30 @@ void solve()
 	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1000000000);
 	
-	string s; cin >> s;
+	ll n; cin >> n;
 
-	ans = s.size();
+	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
+
+	for (ll i = 1; i <= n / 2; i += 1)
+	{ 
+		cout << a[i] << " " << a[n - i + 1] << " ";
+	}
 	
-	pfll(ans);
+	
+	if (n & 1)
+		cout << a[n / 2 + 1] << endl;
+	else
+		cout << endl;
+	// string s; cin >> s;
+
+	// for (int i = 0; i < s.size(); i++)
+	// {
+
+	// }
+	
+	
+
+	// pfll(ans);
 
 	return;
 }
