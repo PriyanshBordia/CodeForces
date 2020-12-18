@@ -19,31 +19,24 @@ void solve()
 {
 	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
 	
-	ll ans(0), sum(0), cnt(0), mx(2), mn(1000000000);
+	ll ans(0), sum(0), cnt(0), mx(-1), mn(1000000000);
 	
 	ll n; cin >> n;
 
-	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
+	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
 
-	sort (a, a + n);
-
-	for (int i = 0; i < n - 2; i++)
+	for (ll i = 1; i <= n; i++)
 	{
-		for (int k = mx; k < n; k++)
-		{
-			mx = k;
 
-			if ((a[k] - a[i]) <= 2)
-				cnt++;
-
-			else
-				break;			
-		}
-
-		ans += (cnt * (cnt + 1) / 2); 
-		cnt = 0;
 	}
+	
+	string s; cin >> s;
 
+	for (int i = 0; i < s.size(); i++)
+	{
+
+	}
+	
 	pfll(ans);
 
 	return;
@@ -51,8 +44,10 @@ void solve()
 
 int main()
 {
-	ll t; cin >> t;
+	ll t = 1; scll(t);
 	
-	while(t--)
+	while (t--)
 		solve();
+
+	return 0;
 }
