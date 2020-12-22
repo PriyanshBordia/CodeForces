@@ -23,13 +23,13 @@ void solve()
 	
 	ll a, b, c; cin >> a >> b >> c;
 
-	ll z = (a + b + c) / 7;
+	ll z = (a + b + c) / 9;
 
 
-	if (a == 0 || b == 0 || c == 0)
+	if (a == 0 || b == 0 || c == 0 || z == 0)
 		no;
 
-	else if ((a >= z && b >= z && c >= z) && ((a + b  + c) - (3 * z)) % 6 == 0 && z > 0)
+	else if ((a >= z && b >= z && c >= z) && (a + b  + c) % 9 == 0)
 		yes;
 	
 	else

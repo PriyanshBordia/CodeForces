@@ -23,7 +23,17 @@ void solve()
 	
 	ll n; cin >> n;
 
-	for ()
+	if (n & 1)
+	{
+		ans = 2 * (n / 2 + 1) * (n / 2 + 2);
+	}
+
+	else
+	{
+		ans = pow(n / 2 + 1, 2);
+	}
+
+	pfll(ans);
 
 	return;
 }
