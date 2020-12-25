@@ -23,33 +23,39 @@ void solve()
 	
 	ll n; cin >> n;
 
-	ll a[n + 1]; for (int i = 1; i <= n; i++) { cin >> a[i]; sum += a[i]; }
+	ll a[n + 1]; for (int i = 1; i <= n; i++) { cin >> a[i]; ans += a[i]; }
 
-	for (int i = 1; i <= n; ++i)
+	for (int i = 1; i <= n; i++)
 	{
-		cnt = 0;
-		for (int j = 1; j <= n; j++)
-		{
-			cnt += 2 * abs(a[j] - a[i]);
-		}	
+		if (i & 1)
+			sum += a[i] - 1;
+		else
+			cnt += a[i] - 1;
+ 	}
 
-		if (cnt <= sum)
+ 	if (cnt <= ans / 2)
+ 	{
+ 		for (int k = 1; k <= n; ++k)
 		{
-			for (int k = 1; k <= n; ++k)
-			{
-				cout << a[i] << " ";
-			}
+			if (k % 2 == 0)
+				cout << "1 ";
 
-			cout << endl; // << sum << " " << cnt << endl;
-			return;
+			else
+				cout << a[k] << " ";
 		}
-	}
+ 	}
 
+ 	else
+ 	{
+ 		for (int k = 1; k <= n; ++k)
+		{
+			if (k & 1)
+				cout << "1 ";
 
-	for (int k = 1; k <= n; ++k)
-	{
-		cout << a[k] << " ";
-	}
+			else
+				cout << a[k] << " ";
+		}
+ 	}
 
 	cout << endl;
 
