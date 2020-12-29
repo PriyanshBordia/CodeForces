@@ -23,21 +23,33 @@ void solve()
 	
 	ll n; cin >> n;
 
-	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
+	ll a[n + 1]; 
+	for (int i = 1; i <= n; i++) 
+	{ 
+		int x; cin >> x; 
 
-	for (ll i = 1; i <= n; i++)
+		sum += x;
+		ans = max(ans, sum); 
+	}
+
+	cnt = ans;
+	
+	ans = 0; sum = 0;
+
+	ll m; cin >> m;
+	
+	ll b[m + 1]; 
+	for (int i = 1; i <= m; i++) 
 	{
+		int x; cin >> x; 
 
+		sum += x;
+		ans = max(ans, sum);
 	}
 	
-	string s; cin >> s;
-
-	for (int i = 0; i < s.size(); i++)
-	{
-
-	}
 	
-	pfll(ans);
+	cnt += ans; 
+	pfll(cnt);
 
 	return;
 }

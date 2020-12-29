@@ -19,7 +19,7 @@ void solve()
 {
 	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
 	
-	ll ans(0), sum(0), cnt(0), mx(-1), mn(1000000000);
+	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e19);
 	
 	ll n; cin >> n;
 

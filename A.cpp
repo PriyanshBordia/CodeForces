@@ -17,27 +17,36 @@ using namespace std;
 
 void solve()
 {
-	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
-	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1000000000);
-	
-	ll n; cin >> n;
-
-	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
-
-	for (ll i = 1; i <= n; i++)
-	{
-
-	}
 	
 	string s; cin >> s;
 
+	if (s.size() & 1)
+	{
+		no;
+		return;
+	}
+
 	for (int i = 0; i < s.size(); i++)
 	{
+		if (s[i] == '(' || s[i] == '?')
+		{
+			cnt++;
+		}
 
+		else if (s[i] == ')')
+		{
+			cnt--;
+
+			if (cnt < 0)
+			{
+				no; 
+				return;
+			}
+		}
 	}
 	
-	pfll(ans);
+	yes;
 
 	return;
 }

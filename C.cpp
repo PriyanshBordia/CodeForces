@@ -21,23 +21,20 @@ void solve()
 	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1000000000);
 	
-	ll n; cin >> n;
+	ll n, k; cin >> n >> k;
 
-	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
+	ll h[n + 1]; for (int i = 1; i <= n; i++) cin >> h[i];
 
-	for (ll i = 1; i <= n; i++)
+	for (ll i = 2; i <= n; i++)
 	{
-
+		if (h[i] - (h[i - 1] + 2 * k) > k)
+		{
+			no;
+			return;
+		}
 	}
 	
-	string s; cin >> s;
-
-	for (int i = 0; i < s.size(); i++)
-	{
-
-	}
-	
-	pfll(ans);
+	yes;
 
 	return;
 }
