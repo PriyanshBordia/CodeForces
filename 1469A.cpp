@@ -21,29 +21,10 @@ void solve()
 	
 	string s; cin >> s;
 
-	if (s.size() & 1)
+	if (s.size() & 1 || s[0] == ')' || s[s.size() - 1] == '(')
 	{
 		no;
 		return;
-	}
-
-	for (int i = 0; i < s.size(); i++)
-	{
-		if (s[i] == '(' || s[i] == '?')
-		{
-			cnt++;
-		}
-
-		else if (s[i] == ')')
-		{
-			cnt--;
-
-			if (cnt < 0)
-			{
-				no; 
-				return;
-			}
-		}
 	}
 	
 	yes;

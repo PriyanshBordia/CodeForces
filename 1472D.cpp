@@ -17,25 +17,33 @@ using namespace std;
 
 void solve()
 {
-	vector<ll> v;	set<double> st;		map<ll, ll> mp;
-	
-	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
 	
 	ll n; cin >> n;
 
 	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
 
-	for (ll i = 1; i <= n; i++)
+	sort(a + 1, a + n + 1);
+
+	ll alice(0), bob(0), i(0);
+	while(i < n)
 	{
-		for (ll j = i + 1; j <= n; ++j)
-		{
-			double area = 1.0 / 2 * (a[i] - a[j]);
-		
-			st.insert(abs(area));
-		}
+		if (i % 2 == 0 && a[n - i] % 2 == 0)
+			alice += a[n - i];
+			
+		else if (i & 1 && a[n - i] & 1)
+			bob += a[n - i];
+
+		i++;
 	}
+
+	if (alice > bob)
+		cout << "Alice\n";
+
+	else if (bob > alice)	
+		cout << "Bob\n";
 	
-	cout << st.size() << "\n";
+	else
+		cout << "Tie\n";
 
 	return;
 }

@@ -17,25 +17,29 @@ using namespace std;
 
 void solve()
 {
-	vector<ll> v;	set<double> st;		map<ll, ll> mp;
+	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
 	
-	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
+	ll ans(0), sum(0), cnt(0), mx(0), mn(0);
 	
-	ll n; cin >> n;
+	ll n, x; cin >> n >> x;
 
 	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
 
 	for (ll i = 1; i <= n; i++)
 	{
-		for (ll j = i + 1; j <= n; ++j)
+		sum += a[i] / x;
+		ans += a[i];
+
+		if ((a[i] % x) != 0)
 		{
-			double area = 1.0 / 2 * (a[i] - a[j]);
-		
-			st.insert(abs(area));
+			cnt++;
 		}
 	}
-	
-	cout << st.size() << "\n";
+
+	mx = cnt + sum;
+	mn = ceil(ans * 1.0 / x);
+
+	cout << mn << " " << mx << endl;
 
 	return;
 }

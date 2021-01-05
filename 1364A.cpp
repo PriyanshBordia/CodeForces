@@ -17,25 +17,37 @@ using namespace std;
 
 void solve()
 {
-	vector<ll> v;	set<double> st;		map<ll, ll> mp;
+	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
 	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
 	
-	ll n; cin >> n;
+	ll n, x; cin >> n >> x;
 
-	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
+	ll a[n + 1]; for (int i = 1; i <= n; i++) { cin >> a[i]; sum += a[i]; }
 
-	for (ll i = 1; i <= n; i++)
+
+	ll i = 1, temp = sum;
+	while (temp % x == 0 && i <= n)
 	{
-		for (ll j = i + 1; j <= n; ++j)
-		{
-			double area = 1.0 / 2 * (a[i] - a[j]);
-		
-			st.insert(abs(area));
-		}
+		temp -= a[i];
+		cnt++;
+		i++;
+	}
+
+	i = n; temp = sum;
+	while (temp % x == 0 && i > 0)
+	{
+		temp -= a[i];
+		ans++;
+		i--;
 	}
 	
-	cout << st.size() << "\n";
+	if (ans == n || cnt == n)
+		ans = -1;
+	else
+		ans = max(n - ans, n - cnt);
+
+	pfll(ans);
 
 	return;
 }

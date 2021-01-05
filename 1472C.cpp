@@ -17,7 +17,7 @@ using namespace std;
 
 void solve()
 {
-	vector<ll> v;	set<double> st;		map<ll, ll> mp;
+	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
 	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
 	
@@ -27,15 +27,23 @@ void solve()
 
 	for (ll i = 1; i <= n; i++)
 	{
-		for (ll j = i + 1; j <= n; ++j)
-		{
-			double area = 1.0 / 2 * (a[i] - a[j]);
+		ll j = i; cnt = 0; 
 		
-			st.insert(abs(area));
+		if (a[j] > 0)
+		{
+			while (j <= n && a[j] != -1)
+			{
+				cnt += a[j];
+				ll temp = a[j];
+				a[j] = -1;
+				j += temp;
+			}
 		}
+
+		sum = max(sum, cnt);
 	}
 	
-	cout << st.size() << "\n";
+	pfll(sum);
 
 	return;
 }
