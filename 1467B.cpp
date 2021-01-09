@@ -23,29 +23,21 @@ void solve()
 	
 	ll n; cin >> n;
 
-	ll a[n + 1], b[n + 1]; for (int i = 1; i <= n; i++) { cin >> a[i]; b[i] = a[i]; }
-
-	for (ll i = 2; i < n; i++)
-	{	
-		if (i - 1 >= 1 && a[i] > a[i - 1] && i + 1 <= n && a[i] > a[i + 1])
-			cnt++;
-			
-		else if (i - 1 >= 1 && a[i] < a[i - 1] && i + 1 <= n && a[i] < a[i + 1])
-			cnt++;
-
-		else
-			b[i] = -1;
-	}
-
-	cout << cnt + 2 << endl;
+	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
 
 	for (ll i = 1; i <= n; i++)
 	{
-		if (b[i] != -1)
-			cout << a[i] << " ";
-	}	
+
+	}
 	
-	cout << endl;
+	string s; cin >> s;
+
+	for (int i = 0; i < s.size(); i++)
+	{
+
+	}
+	
+	pfll(ans);
 
 	return;
 }
