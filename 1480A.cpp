@@ -21,23 +21,25 @@ void solve()
 	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
 	
-	ll n; cin >> n;
-
-	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
-
-	for (ll i = 1; i <= n; i++)
-	{
-
-	}
-	
 	string s; cin >> s;
 
+	int alice(1), bob(0);
 	for (int i = 0; i < s.size(); i++)
 	{
+		if (alice & 1)
+		{
+			s[i] = (s[i] == 'a') ? 'b' : 'a';
+			alice = 0; bob = 1;
+		}
 
+		else if (bob & 1)
+		{
+			s[i] = (s[i] == 'z') ? 'y' : 'z';
+			bob = 0; alice = 1;
+		}
 	}
 	
-	pfll(ans);
+	cout << s << endl;
 
 	return;
 }
