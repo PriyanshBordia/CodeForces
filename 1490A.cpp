@@ -25,19 +25,19 @@ void solve()
 
 	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
 
-	for (ll i = 1; i <= n; i++)
+	for (ll i = 1; i < n; i++)
 	{
+		mx = max(a[i], a[i + 1]);
+		mn = min(a[i], a[i + 1]);
 
+		while (((mx * 1.0) / mn) > 2)
+		{
+			mn *= 2;
+			cnt++;
+		}
 	}
 	
-	string s; cin >> s;
-
-	for (int i = 0; i < s.size(); i++)
-	{
-
-	}
-	
-	pfll(ans);
+	pfll(cnt);
 
 	return;
 }
