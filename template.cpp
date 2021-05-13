@@ -74,22 +74,25 @@ int main()
 
 #include <time.h>
 
-	clock_t start = clock();
+clock_t start = clock();
 
-	clock_t end = clock();
+clock_t end = clock();
 
-	cout << double(end - start) / CLOCKS_PER_SEC << endl;
+// cout << double(end - start) / CLOCKS_PER_SEC << endl;
 
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 
 void solve()
 {
 
+	return;
 }
 
 int main()
 {
 
+	return 0;
 }
