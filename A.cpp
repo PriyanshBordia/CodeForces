@@ -23,22 +23,12 @@ void solve()
 	
 	ll n; cin >> n;
 
-	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
+	cnt = log(n) / log(2);
 
-	for (ll i = 1; i <= n; i++)
-	{
+	ans = pow(2, cnt) - 1;
 
-	}
-	
-	string s; cin >> s;
-
-	for (int i = 0; i < s.size(); i++)
-	{
-
-	}
-	
 	pfll(ans);
-
+	
 	return;
 }
 
