@@ -19,33 +19,22 @@ void solve()
 {
 	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
 	
-	ll ans(0), sum(0), cnt[101], mx(-1), mn(1e18);
+	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
 	
 	ll n; cin >> n;
 
-	for (int i = 0; i < 101; i++)
-		cnt[i] = 0;
+	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
 
-	ll a[n + 1]; for (int i = 1; i <= n; i++) 
-	{ 
-		cin >> a[i]; 
-		cnt[a[i]]++;
-	}
-
-
-	for (ll i = 1; i <= 100; i++)
+	for (ll i = 1; i <= n; i++)
 	{
-		if (cnt[i] == n)
-		{
-			ans = 0;
-			break;
-		}
 
-		else if (cnt[i] > 0)
-		{ 
-			ans = n - cnt[i];
-			break;
-		}
+	}
+	
+	string s; cin >> s;
+
+	for (int i = 0; i < s.size(); i++)
+	{
+
 	}
 	
 	pfll(ans);
