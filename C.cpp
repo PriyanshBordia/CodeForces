@@ -1,8 +1,8 @@
 #include <iostream>
 #include <cstring>
 #include <math.h>
-#include <algorithm>
 #include <numeric>
+#include <algorithm>
 #include <vector>
 #include <map>
 #include <set>
@@ -16,28 +16,42 @@ typedef long long ll;
 using namespace std;
 
 void solve()
-{
-	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
+{	
+	int ans(0), sum(0), cnt(0);
 	
-	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
-	
-	ll n; cin >> n;
+	int n; cin >> n;
 
-	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
-
-	for (ll i = 1; i <= n; i++)
+	vector<int> v;	
+	vector<int> o;
+	for (int i = 0; i < n; i++) 
 	{
+		cin >> ans;
+		if (ans & 1)
+			o.push_back(ans);
+		else
+			v.push_back(ans);
+	}
 
+	v.insert(v.end(), o.begin(), o.end());
+
+	for (int i = 0; i < v.size(); i++)
+	{
+		if (v[i] % 2 == 0)
+			cnt += (n - i - 1);
+		// cout << cnt << endl;
 	}
 	
-	string s; cin >> s;
+	sort(o.begin(), o.end());
 
-	for (int i = 0; i < s.size(); i++)
+	for (int i = 0; i < o.size(); i++)
 	{
-
+		// cout << o[i] << " ";
+		int j = i - 1;
+		while (j >= 0 && o[i] == o[j--] && o[i] != 1)
+			cnt++;
 	}
-	
-	pfll(ans);
+
+	cout << cnt << endl;
 
 	return;
 }
