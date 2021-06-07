@@ -25,21 +25,82 @@ void solve()
 	
 	ll n; cin >> n;
 
-	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
-
-	for (ll i = 1; i <= n; i++)
-	{
-
-	}
-	
 	string s; cin >> s;
 
-	for (int i = 0; i < s.size(); i++)
+	int ch1[26];
+	int ch2[26][26];
+	int ch[26][26][26];
+
+	for (int i = 0; i < 26; i++)
+		ch1[i] = 0;
+
+	for (int i = 0; i < 26; i++)
 	{
+		for (int j = 0; j < 26; j++)
+			ch2[i][j] = 0;
+	}
+
+
+	for (int i = 0; i < 26; i++)
+	{
+		for (int j = 0; j < 26; j++)
+		{
+			for (int k = 0; k < 26; k++)
+				ch[i][j][k] = 0; 
+		}
+	}
+
+	for (int i = 0; i < n; i++)
+	{
+		ch1[s[i] - 'a']++;
+
+		if (i + 1 < n)
+		{
+			ch2[s[i] - 'a'][s[i + 1] - 'a']++;
+
+			if (i + 2 < n)
+			{
+				ch[s[i] - 'a'][s[i + 1] - 'a'][s[i + 2] - 'a']++;				
+			}
+		}
+	}
+
+	for (int i = 0; i < 26; i++)
+	{
+		if (ch1[i] == 0)
+		{
+			cout << char(i + 'a') << endl;
+			return;
+		}
 
 	}
-	
-	pfll(ans);
+
+	for (int i = 0; i < 26; i++)
+	{
+		for (int j = 0; j < 26; j++)
+		{
+			if (ch2[i][j] == 0)
+			{
+				cout << char(i + 'a') << char(j + 'a') << endl;
+				return;
+			}
+		}
+	}
+
+	for (int i = 0; i < 26; i++)
+	{
+		for (int j = 0; j < 26; j++)
+		{
+			for (int k = 0; k < 26; k++)
+			{
+				if (ch[i][j][k] == 0)
+				{
+					cout << char(i + 'a') << char(j + 'a') << char(k + 'a') << endl;
+					return;
+				}
+			}
+		}
+	}
 
 	return;
 }
