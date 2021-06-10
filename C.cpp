@@ -21,25 +21,26 @@ void solve()
 {
 	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
 	
-	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
+	ll ans(0), sum(0), cnt(0);
 	
-	ll n; cin >> n;
+	ll n, l, r; cin >> n >> l >> r;
 
-	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
-
-	for (ll i = 1; i <= n; i++)
+	ll mx[n], mn[n];
+	for (int i = 0; i < n; i++) 
 	{
+		ll x; cin >> x;
 
+		if (x < r)
+			v.push_back(x);
+		
+		// if (v[i] < r)
+		// {
+		// 	mn[i] = max(0, l - v[i]);
+		// 	mx[i] = max(0, r - v[i]);
+		// }
 	}
-	
-	string s; cin >> s;
 
-	for (int i = 0; i < s.size(); i++)
-	{
-
-	}
-	
-	pfll(ans);
+	pfll(cnt);
 
 	return;
 }

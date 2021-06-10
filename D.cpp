@@ -17,29 +17,69 @@ typedef long long ll;
 
 using namespace std;
 
+int countDivisors(ll n)
+{
+	if (n == 2)
+		return 1;
+
+    int cnt = 0;
+    for (ll i = 2; i <= sqrt(n); i++) {
+        if (n % i == 0) {
+            // If divisors are equal,
+            // count only one
+            if (n / i == i)
+                cnt++;
+ 
+            else // Otherwise count both
+                cnt = cnt + 2;
+        }
+    }
+    return cnt;
+}
+ 
+
 void solve()
 {
 	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
 	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
 	
-	ll n; cin >> n;
+	ll a, b, k; cin >> a >> b >> k;
 
-	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
+	cnt = countDivisors(a) + countDivisors(b);
 
-	for (ll i = 1; i <= n; i++)
-	{
+	// cout << cnt << endl;
 
-	}
+	if (a == 1 and b == 1)
+		no;
 	
-	string s; cin >> s;
-
-	for (int i = 0; i < s.size(); i++)
+	if (k == 1)
 	{
-
+		if ((a % b == 0 or b % a == 0) && a != b)
+			yes;
+		else
+			no;
 	}
+
+	else
+	{
+		if (cnt >= k)
+			yes;
+
+		else
+			no;
+	}
+
+	// for (ll i = 1; i <= k / 2; i++)
+	// {
+	// 	if ((a / i) == (b / (k - i)) || ((b / i) == (a / (k - i))))
+	// 	{
+	// 		yes;
+	// 		return;
+	// 	}
+	// }
 	
-	pfll(ans);
+	// no;
 
 	return;
 }

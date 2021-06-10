@@ -21,23 +21,36 @@ void solve()
 {
 	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
 	
-	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
+	ll ans(0), sum(0), cnt(0), mx(1), mn(1);
 	
 	ll n; cin >> n;
 
-	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
-
-	for (ll i = 1; i <= n; i++)
+	ll a[n + 1]; 
+	for (int i = 1; i <= n; i++) 
 	{
-
+		ll x; cin >> x;
+		a[x] = i;
 	}
+
+	mn = a[1];
+	mx = a[n];
+
+	if (mx > mn)
+		ans = min(mx, n - mn + 1);
+	else
+		ans = min(mn, n - mx + 1);
 	
-	string s; cin >> s;
+	if (mn <= n / 2 && mx <= n / 2)
+		ans = max(mx, mn);
 
-	for (int i = 0; i < s.size(); i++)
-	{
+	else if (mn > n / 2 && mx > n / 2)
+		ans = max(n - mx, n - mn) + 1;
 
-	}
+	else if (mn <= n / 2 && mx > n / 2)
+		ans = min(mn + n - mx + 1, min(mx, n - mn + 1));
+
+	else
+		ans = min(n - mn + mx + 1, min(mn, n - mx + 1));
 	
 	pfll(ans);
 
