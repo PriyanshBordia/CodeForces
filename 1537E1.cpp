@@ -23,19 +23,24 @@ void solve()
 
 	string s; cin >> s;
 
-	for (int i = 1; i < n; i++)
+	int j = 0;
+	for (int i = 1; i < n and j < n; i++)
 	{
-		if (s[i] >= s[0])
+		// cout << s[i] << " " << s[j] << endl;
+
+		if (s[i] == s[j])
+			j++;
+
+		else if (s[i] > s[j])
 		{
-			// mn = i;
 			s = s.substr(0, i);
 			break;
 		}
 	}
 
 
-	// while (s.size() > 1 and s[0] <= s[s.size() - 1])
-	// 	s.erase(s.end() - 1, s.end());
+	while (s.size() > 1 and s[0] <= s[s.size() - 1])
+		s.erase(s.end() - 1, s.end());
 	
 	string t = s;
 	n = s.size();
