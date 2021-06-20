@@ -19,36 +19,36 @@ using namespace std;
 
 void solve()
 {
-	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
-	
-	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
-	
-	ll n; cin >> n;
+	ll cnt = 0;
 
-	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
+	ll n, q; cin >> n >> q;
 
-	for (ll i = 1; i <= n; i++)
-	{
-
-	}
-	
 	string s; cin >> s;
 
-	for (int i = 0; i < s.size(); i++)
+	ll sum[n + 1]; sum[0] = 0;
+	for (int i = 1; i <= n; i++)
 	{
+		sum[i] = sum[i - 1] + int(s[i - 1] - 'a') + 1;
+		// cout << sum[i] << " ";
+	}
 
+	// cout << endl;
+
+	while (q--)
+	{
+		int l, r; cin >> l >> r;
+		
+		cout << sum[r] - sum[l - 1] << endl;
 	}
 	
-	pfll(ans);
-
 	return;
 }
 
 int main()
 {
-	ll t = 1; scll(t);
+	// ll t = 1; //scll(t);
 	
-	while (t--)
+	// while (t--)
 		solve();
 
 	return 0;
