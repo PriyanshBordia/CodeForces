@@ -19,15 +19,27 @@ using namespace std;
 
 void solve()
 {
-	vector<ll> v; set<ll> st; map<ll, ll> mp;
-
+	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
+	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
-
+	
 	ll n; cin >> n;
 
-	cout << "Alice" << endl;
+	ll a[n + 1]; for (int i = 1; i <= n; i++) cin >> a[i];
 
-	cout << "Bob" << endl;
+	for (ll i = 1; i <= n; i++)
+	{
+
+	}
+	
+	string s; cin >> s;
+
+	for (int i = 0; i < s.size(); i++)
+	{
+
+	}
+	
+	pfll(ans);
 
 	return;
 }
@@ -35,7 +47,7 @@ void solve()
 int main()
 {
 	ll t = 1; scll(t);
-
+	
 	while (t--)
 		solve();
 
