@@ -29,15 +29,18 @@ void solve()
 		// cout << s[i] << " " << s[j] << endl;
 
 		if (s[i] == s[j])
+		{
 			j++;
+		}
 
-		else if (s[i] > s[j])
+		else if (s[i] > s[j] and s[i] > s[0])
 		{
 			s = s.substr(0, i);
 			break;
 		}
 	}
 
+	// cout << s << endl;
 
 	while (s.size() > 1 and s[0] <= s[s.size() - 1])
 		s.erase(s.end() - 1, s.end());

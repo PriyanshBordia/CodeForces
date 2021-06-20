@@ -1,3 +1,6 @@
 debug.log
 
+.class
 .DS_Store
+
+*.prob
