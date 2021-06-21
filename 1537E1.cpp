@@ -19,38 +19,50 @@ using namespace std;
 
 void solve()
 {
-	ll n, k; cin >> n >> k;
+	ll n, x; cin >> n >> x;
 
 	string s; cin >> s;
 
-	int j = 0;
-	for (int i = 1; i < n and j < n; i++)
+	string t;
+	for (int i = 1; i <= n; i++)
 	{
-		// cout << s[i] << " " << s[j] << endl;
+		t = s.substr(0, i);
 
-		if (s[i] == s[j])
+		int k = 0; bool flag = false;
+		for (int j = i; j < n; j++)
 		{
-			j++;
+			if (s[j] < t[k])
+			{
+				flag = true;
+				break;
+			}
+
+			else if (s[j] > t[k])
+			{
+				flag = false;
+				break;
+			}
+
+			else
+			{
+				if (k == t.size() - 1)
+					k = 0;
+				else 
+					k++;
+			}
 		}
 
-		else if (s[i] > s[j] and s[i] > s[0])
+		if (flag)
 		{
-			s = s.substr(0, i);
+			cout << t << endl;
 			break;
 		}
 	}
 
-	// cout << s << endl;
+	while (t.size() < x)
+		t += t;
 
-	while (s.size() > 1 and s[0] <= s[s.size() - 1])
-		s.erase(s.end() - 1, s.end());
-	
-	string t = s;
-	n = s.size();
-	for (int i = 1; i <= k / n; i++)
-		t = t + s;
-
-	cout << t.substr(0, k) << endl;
+	cout << t.substr(0, x) << endl;
 
 	return;
 }

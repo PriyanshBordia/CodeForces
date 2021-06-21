@@ -26,7 +26,7 @@ void solve()
 	ll n, x, t; cin >> n >> x >> t;
 	
 	cnt = t / x;
-	ans += (n - cnt - 1) * (cnt) + (cnt * (cnt + 1) / 2);
+	ans += max(ll(0), n - cnt) * cnt + min(n - 1, cnt - 1) * min(n, cnt) / 2;
 
 	pfll(ans);
 

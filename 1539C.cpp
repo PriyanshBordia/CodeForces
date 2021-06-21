@@ -19,41 +19,43 @@ using namespace std;
 
 void solve()
 {
-	vector<ll> a;	set<ll> st;		map<ll, ll> mp;
+	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
 	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
 	
 	ll n, k, x; cin >> n >> k >> x;
 
+	ll a[n];
 	for (int i = 0; i < n; i++) 
-	{
-		ll z; cin >> z;
-		a.push_back(z);
-	}
+		cin >> a[i];
 
-	sort(a.begin(), a.end());
+	sort(a, a + n);
 
-	for (int i = 0; i < a.size(); i++)
+	vector<ll> diff;
+	for (int i = 1; i < n; i++)
 	{
-		if (i - 1 >= 0 and (a[i] - a[i - 1]) > x)
+		if (a[i] - a[i - 1] > x)
 		{
-			// cout << i << " : " << a[i] << endl;
-
-			if (k > 0 and ceil((a[i] - a[i - 1]) / 2.0) <= x and (a[i] - a[i - 1]) / x <= k)
-			{
-				a.insert(a.begin() + i, a[i - 1] + x);
-
-				k--; i--;
-			}
-
-			else
-				cnt++;
+			diff.push_back(a[i] - a[i - 1]);
+			cnt++;
 		}
 	}
 
-	// for (int i = 0; i < a.size(); i++)
-	// 	cout << a[i] << " ";
-	// cout << endl;
+	sort(diff.begin(), diff.end());
+
+	for (int i = 0; i < diff.size(); i++)
+	{
+		ll d = diff[i] / x;
+
+		if (diff[i] % x == 0)
+			d--;
+
+		if (d <= k)
+		{
+			k -= d;
+			cnt--;
+		}
+	}
 
 	pfll(cnt + 1);
 
