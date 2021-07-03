@@ -1,10 +1,10 @@
 debug.log
 
 .class
+
 .DS_Store
 
 *.prob
-1
-1537E1.bin
-1
-1
+
+.bin
+.vscode

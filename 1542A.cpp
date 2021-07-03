@@ -25,22 +25,18 @@ void solve()
 	
 	ll n; cin >> n;
 
-	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
+	ll a[2 * n]; for (int i = 0; i < 2 * n; i++) cin >> a[i];
 
-	for (ll i = 0; i < n; i++)
+	for (ll i = 0; i < 2 * n; i++)
 	{
-
+		if (a[i] & 1)
+			cnt++;
 	}
-	
-	string s; cin >> s;
 
-	for (int i = 0; i < s.size(); i++)
-	{
-
-	}
-	
-	pfll(ans);
-
+	if (cnt == n)
+		yes;
+	else
+		no;
 	return;
 }
 
