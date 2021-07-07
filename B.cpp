@@ -18,9 +18,7 @@ typedef long long ll;
 using namespace std;
 
 void solve()
-{
-	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
-	
+{	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
 	
 	ll n; cin >> n;
@@ -29,16 +27,17 @@ void solve()
 
 	for (ll i = 0; i < n; i++)
 	{
-
+		sum += a[i];
 	}
 	
-	string s; cin >> s;
+	ans = sum % n;
 
-	for (int i = 0; i < s.size(); i++)
+	if (ans != 0)
 	{
-
+		cnt = sum / n;
+		ans *= (n - ans);
 	}
-	
+
 	pfll(ans);
 
 	return;
