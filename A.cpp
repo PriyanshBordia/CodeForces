@@ -23,34 +23,68 @@ void solve()
 	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
 	
-	ll a, b; cin >> a >> b;
+	ll n; cin >> n;
 
-	if (a == b)
-		cout << "0 0" << endl;
+	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
+	ll b[n]; for (int i = 0; i < n; i++) cin >> b[i];
 
+	int sumA = 0, sumB = 0;
+	for (ll i = 0; i < n; i++)
+	{
+		sumA += a[i];
+		sumB += b[i];
+	}
+	
+	if (sumA != sumB)
+	{
+		cout <<  "-1\n";
+	}
+	
 	else
 	{
-		ans = abs(a - b);
-		cnt = min(min(a, b) % ans, max(a, b) % ans);
-		cnt = min(cnt, (ans - min(a, b) % ans));
-		cnt = min(cnt, (ans - max(a, b) % ans));
-		cnt = min(cnt, min(a, b));
+		int i = 0;
+		vector<int> x;
+		vector<int> y;
+		while (i < n)
+		{
+			while (a[i] != b[i] and i < n)
+			{
+				for (int j = i + 1; j < n; j++)
+				{
+					if (a[i] < b[i] and a[j] > b[j] and a[j] >= 1)
+					{
+						a[i] += 1;
+						a[j] -= 1;
+						x.push_back(j + 1);
+						y.push_back(i + 1);
+						cnt++;						
+					}
 
-		if (ans == 1 or (ans == cnt))
-			cnt = 0;
+					else if (a[i] > b[i] and a[j] < b[j] and a[i] >= 1) 
+					{
+						a[i] -= 1;
+						a[j] += 1;
+						x.push_back(i + 1);
+						y.push_back(j + 1);
+						cnt++;
+					}
+				}
 
-		cout << ans << " " << cnt << endl;
+			}
+
+			i++;
+		}
+
+		cout << cnt << endl;
+
+		for (int k = 0; k < x.size(); k++)
+			cout << x[k] << " " << y[k] << endl;
 	}
 
 	return;
 }
 
-/*
-9 16 - 7
-0 7 - 9
-14 
-7 14
-*/
+// 3 1 2 3
 int main()
 {
 	ll t = 1; scll(t);

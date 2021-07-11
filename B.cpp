@@ -18,27 +18,47 @@ typedef long long ll;
 using namespace std;
 
 void solve()
-{	
+{
+	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
+	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
 	
-	ll n; cin >> n;
-
-	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
-
-	for (ll i = 0; i < n; i++)
-	{
-		sum += a[i];
-	}
+	ll n, m; cin >> n >> m;
 	
-	ans = sum % n;
-
-	if (ans != 0)
+	int alpha[m][26];
+	for (int j = 0; j < m; j++)
 	{
-		cnt = sum / n;
-		ans *= (n - ans);
+		for (int i = 0; i < 26; i++)
+			alpha[j][i] = 0;
 	}
 
-	pfll(ans);
+	// vector<string> s; 
+	for (int i = 0; i < n; i ++)
+	{
+		string s; cin >> s;
+		// s.push_back(s);
+
+		for (int j = 0; j < m; j++)
+			alpha[j][s[j] - 'a']++;
+	}
+
+	// vector<string> z;
+	for (int i = 0; i < n - 1; i++)
+	{
+		string t; cin >> t;
+		// s.push_back(s);
+		for (int j = 0; j < m; j++)
+			alpha[j][t[j] - 'a']--;
+	}
+
+	for (int j = 0; j < m; j++)
+	{
+		for (int i = 0; i < 26; i++)
+			if (alpha[j][i] > 0)
+				cout << char(i + 'a');
+	}
+
+	cout << endl;
 
 	return;
 }
