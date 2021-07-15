@@ -23,23 +23,22 @@ void solve()
 	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
 	
-	ll n; cin >> n;
+	ll s; cin >> s;
 
-	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
-
-	for (ll i = 0; i < n; i++)
+	int i = 1;
+	while (s > 0)
 	{
+		sum += i;
 
+		cnt++;
+
+		if ((s - sum) <= 0)
+			break;
+
+		i += 2;
 	}
 	
-	string s; cin >> s;
-
-	for (int i = 0; i < s.size(); i++)
-	{
-
-	}
-	
-	pfll(ans);
+	pfll(cnt);
 
 	return;
 }
