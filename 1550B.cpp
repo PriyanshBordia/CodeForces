@@ -23,23 +23,41 @@ void solve()
 	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
 	
-	ll n; cin >> n;
+	ll n, a, b; cin >> n >> a >> b;
 
-	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
-
-	for (ll i = 0; i < n; i++)
-	{
-
-	}
-	
 	string s; cin >> s;
 
-	for (int i = 0; i < s.size(); i++)
-	{
+	ans = n * (a + b);
 
+	vector<ll> zero;
+	vector<ll> one;
+	int r = 0, t = 0; 
+	for (int i = 0; i < n; i++)
+	{
+		if (s[i] == '0')
+		{
+			r++;
+			if (t > 0)
+				one.push_back(t);
+			t = 0;
+		}
+
+		else if (s[i] == '1')
+		{
+			t++;
+			if (r > 0)
+				zero.push_back(r);
+			r = 0;
+		}
 	}
-	
-	pfll(ans);
+
+	mx = a * n + b * min(one.size(), zero.size()) + b;
+
+	ans  = max(ans, mx);
+
+	sum = a * n + b * (one.size() + zero.size());
+
+	pfll(max(sum, ans));
 
 	return;
 }
