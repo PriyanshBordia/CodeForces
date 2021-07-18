@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include <string>
 #include <math.h>
 #include <algorithm>
 #include <numeric>
@@ -25,25 +26,23 @@ void solve()
 	
 	ll n; cin >> n;
 
-	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
-
-	for (ll i = 0; i < n; i++)
-	{
-
-	}
-	
-	string s; cin >> s;
+	string s = to_string(n);
 
 	for (int i = 0; i < s.size(); i++)
-	{
+		sum = max(ll(s[i] - '0'), sum);
 
-	}
-	
-	pfll(ans);
+	cout << sum << endl;
+	return;
+
+
+	pfll(max(min(sum, ans), ll(1)));
 
 	return;
 }
 
+// 1 10 11 100 101
+// 11 * 8 = 11
+// 91 = 10
 int main()
 {
 	ll t = 1; scll(t);

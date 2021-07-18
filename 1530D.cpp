@@ -27,19 +27,52 @@ void solve()
 
 	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
 
+	ll pos[n + 1]; cnt = n;
+	for (int i = 0; i <= n; ++i)
+		pos[i] = 0;
+
 	for (ll i = 0; i < n; i++)
 	{
+		if (pos[a[i]] != 0)
+		{
+			cnt--;
+			a[i] = -1;
+		}
 
+		pos[a[i]] = 1;
 	}
 	
-	string s; cin >> s;
-
-	for (int i = 0; i < s.size(); i++)
+	for (int i = 1; i <= n; i++)
 	{
-
+		if (pos[i] == 0)
+			v.push_back(i);
 	}
 	
-	pfll(ans);
+	cout << cnt << endl;
+
+	vector<ll> ans;
+
+	int j = 0;
+	for (int i = 0; i < n; ++i)
+	{
+		if (a[i] == -1)
+		{
+			if (v[j] == (i + 1))
+			{
+				v.push_back(v[j]);
+				j++;
+			}
+
+			a[i] = v[j];
+			j++;
+		}
+
+		ans.push_back(a[i]);
+	}
+	
+	cout << a[i] << " ";
+
+	cout << endl;
 
 	return;
 }
