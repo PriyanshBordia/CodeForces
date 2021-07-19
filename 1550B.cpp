@@ -27,37 +27,11 @@ void solve()
 
 	string s; cin >> s;
 
-	ans = n * (a + b);
+	ll m = unique(s.begin(), s.end()) - s.begin();
 
-	vector<ll> zero;
-	vector<ll> one;
-	int r = 0, t = 0; 
-	for (int i = 0; i < n; i++)
-	{
-		if (s[i] == '0')
-		{
-			r++;
-			if (t > 0)
-				one.push_back(t);
-			t = 0;
-		}
+	ans = a * n + max(n * b, b * (m / 2 + 1));
 
-		else if (s[i] == '1')
-		{
-			t++;
-			if (r > 0)
-				zero.push_back(r);
-			r = 0;
-		}
-	}
-
-	mx = a * n + b * min(one.size(), zero.size()) + b;
-
-	ans  = max(ans, mx);
-
-	sum = a * n + b * (one.size() + zero.size());
-
-	pfll(max(sum, ans));
+	pfll(ans);
 
 	return;
 }
