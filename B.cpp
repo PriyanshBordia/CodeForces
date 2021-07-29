@@ -21,62 +21,24 @@ void solve()
 {
 	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
 	
-	ll ans(-1), sum(0), cnt(0), mx(-1), mn(1e18);
+	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
 	
 	ll n; cin >> n;
 
-	ll a[n][5]; 
-	for (int i = 0; i < n; i++)
+	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
+
+	for (ll i = 0; i < n; i++)
 	{
-		for (int j = 0; j < 5; j++)
-			cin >> a[i][j];
-	}
 
-	int p[n][n];
-	for (int i = 0; i < n; i++)
+	}
+	
+	string s; cin >> s;
+
+	for (int i = 0; i < s.size(); i++)
 	{
-		for (int j = 0; j < n; j++)
-			p[i][j] = 0;
+
 	}
-
-	for (int i = 0; i < n; i++)
-	{
-		cnt = 0;
-		for (int j = 0; j < n; j++)
-		{
-			for (int k = 0; k < 5; k++)
-			{
-				if (a[i][k] < a[j][k])
-					p[i][j]++;
-			}
-
-			if (p[i][j] >= 3)
-				cnt++;
-		}
-
-		if (cnt == n - 1)
-		{
-			cout << i + 1 << endl;
-			return;
-		}
-	}
-
-	// for (int i = 0; i < n; i++)
-	// {
-	// 	cnt = 0;
-	// 	for (int j = 0; j < n; j++)
-	// 	{	
-	// 		if (p[i][j] >= 3)
-	// 			cnt++;
-	// 	}
-
-	// 	if (cnt == n - 1)
-	// 	{
-	// 		cout << i + 1 << endl;
-	// 		return;
-	// 	}
-	// }
-
+	
 	pfll(ans);
 
 	return;

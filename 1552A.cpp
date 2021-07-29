@@ -24,19 +24,16 @@ void solve()
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
 	
 	ll n; cin >> n;
-
-	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
-
-	for (ll i = 0; i < n; i++)
-	{
-
-	}
 	
 	string s; cin >> s;
 
+	string t = s;
+	sort(t.begin(), t.end());
+
 	for (int i = 0; i < s.size(); i++)
 	{
-
+		if (s[i] != t[i])
+			ans++;
 	}
 	
 	pfll(ans);
