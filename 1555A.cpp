@@ -21,25 +21,13 @@ void solve()
 {
 	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
 	
-	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
+	ll ans(1e18), sum(0), cnt(0), mx(-1), mn(1e18);
 	
 	ll n; cin >> n;
 
-	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
+	ans = 15 + max(ll(0), ll(ceil((n - 6) * 1.0 / 2) * 5));
 
-	for (ll i = 0; i < n; i++)
-	{
-
-	}
-	
-	string s; cin >> s;
-
-	for (int i = 0; i < s.size(); i++)
-	{
-
-	}
-	
-	pfll(ans);
+	cout << ans << endl;
 
 	return;
 }

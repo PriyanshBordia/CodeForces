@@ -21,25 +21,32 @@ void solve()
 {
 	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
 	
-	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
+	double ans(0);
+
+	double W, H; cin >> W >> H;
+
+	double x1, y1, x2, y2;
+	cin >> x1 >> y1 >> x2 >> y2;
 	
-	ll n; cin >> n;
+	double w, h; cin >> w >> h;
 
-	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
+	double y = y2 - y1, x = x2 - x1;
 
-	for (ll i = 0; i < n; i++)
+	if ((x + w) > W and (y + h) > H)
 	{
-
+		cout << -1 << endl;
+		return;
 	}
-	
-	string s; cin >> s;
 
-	for (int i = 0; i < s.size(); i++)
+	// if ((x + w) < W)
+	// 	ans = 
+
+	// else
 	{
-
+		ans = sqrt(pow(min(h - y1, y1), 2) + pow(min(w - x1, x1), 2));
 	}
-	
-	pfll(ans);
+
+	cout << ans << endl;
 
 	return;
 }
