@@ -19,34 +19,99 @@ using namespace std;
 
 void solve()
 {
-	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
+	// vector<ll> v;	set<ll> st;		map<ll, ll> mp;
 	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
 	
-	ll n; cin >> n;
+	ll n, m; cin >> n >> m;
 
-	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
-
-	for (ll i = 0; i < n; i++)
+	int relations[n], gPower[n];
+	for (int i = 0; i < n; i++)
 	{
+		relations[i] = 0;
+		gPower[i] = 0;
+	}
 
+	int f[m][2]; 
+	for (int i = 0; i < m; i++) 
+	{
+		cin >> f[i][0] >> f[i][1];
+
+		relations[f[i][0]]++;
+		relations[f[i][1]]++;
+
+		if (f[i][0] > f[i][1])
+			gPower[f[i][1]]++;
+		else 
+			gPower[f[i][0]]++;
+	}
+
+	for (int i = 0; i < n; i++)
+	{
+		if (relations[i] > 0 and relations[i] == gPower[i])
+		{
+			relations[i] = -1;
+			gPower[i] = -1;
+		}
 	}
 	
-	string s; cin >> s;
-
-	for (int i = 0; i < s.size(); i++)
-	{
-
-	}
+	vectorn<pair<ll, ll> v;
 	
-	pfll(ans);
+	ll q; cin >> q;
+	while (q--)
+	{
+		int x; cin >> x;
+
+		if (x == 1)
+		{
+			int u, v; cin >> u >> v;
+			relations[u]++;
+			relations[v]++;
+			
+			if (u > v)
+				gPower[u]++;
+			else 
+				gPower[v]++;
+
+			if (relations[u] > 0 and relations[u] == gPower[u])
+			{
+				gPower[u] = 0;
+
+				for (int i = 0; i < relations.size(); i++)
+				{
+
+				}
+			}
+		}
+
+		else if (x == 2)
+		{
+			int u, v; cin >> u >> v;
+
+			for (int i = 0; i < n; i++)
+			{
+
+			}
+
+			relations[u]--;
+			relations[v]--;
+
+			if (relations[u] <= 0)
+
+		}
+
+		else if (x == 3)
+		{
+			cout << ans << endl;
+		}
+	}
 
 	return;
 }
 
 int main()
 {
-	ll t = 1; scll(t);
+	ll t = 1; //scll(t);
 	
 	while (t--)
 		solve();
