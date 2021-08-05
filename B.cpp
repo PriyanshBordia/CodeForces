@@ -25,31 +25,21 @@ void solve()
 	
 	ll n; cin >> n;
 
-	string enemy; cin >> enemy;
-	string s; cin >> s;
+	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
 
 	for (ll i = 0; i < n; i++)
 	{
-		if (s[i] == '1')
-		{
-			if (enemy[i] == '0')
-				cnt++;
 
-			else if (i - 1 >= 0 and enemy[i - 1] == '1')
-			{
-				enemy[i - 1] = '0';
-				cnt++;
-			}
-
-			else if (i + 1 < n and enemy[i + 1] == '1')
-			{
-				enemy[i + 1] = '0';
-				cnt++;
-			}
-		}
 	}
 	
-	pfll(cnt);
+	string s; cin >> s;
+
+	for (int i = 0; i < s.size(); i++)
+	{
+
+	}
+	
+	pfll(ans);
 
 	return;
 }
