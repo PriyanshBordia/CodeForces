@@ -17,44 +17,7 @@ typedef long long ll;
 
 using namespace std;
 
-int val(string s, int i, int cnt)
-{
-	if (i - 1 >= 0 and s[i] == s[i - 1])
-		cnt++;
 
-	if (i + 1 < s.size() and s[i] == s[i + 1])
-		cnt++;
-
-	return cnt;
-}
-
-string dp(string s, int i, int cnt)
-{
-	if (i >= s.size())
-		return s;
-
-
-	if (s[i] == '?')
-	{
-		s[i] = 'B';
-		dp(s, i + 1, cnt);
-
-		s[i] = 'R';
-		dp(s, i + 1, cnt);
-
-		if (b < r)
-		{
-			s[i] = 'B';
-			cnt = r;
-		}
-
-		else
-			cnt = b;
-	}
-
-	return dp(s, i + 1, cnt);
-}
-// brbrbbr
 void solve()
 {
 	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
@@ -67,13 +30,27 @@ void solve()
 	
 	string s; cin >> s;
 
-	for (int i = 1; i < s.size(); i++)
+
+	int j = 0;
+	while (j < n and s[j] == '?')
+		j++;
+
+	while (j > 0 and j <= n and s[j - 1] == '?')
 	{
-		if ((s[i] == 'R' and s[i - 1] == 'R') or (s[i] == 'B' and s[i - 1] == 'B'))
-			cnt++;
+		j--;
+		s[j] = (s[j + 1] == 'R') ? 'B' : 'R';
 	}
 
-	s = dp(s, 0, cnt);
+	int i = 0; 
+	while (i < n)
+	{
+		if (s[i] == '?')
+		{
+			s[i] = (s[i - 1] == 'R') ? 'B' : 'R';
+		}
+
+		i++;
+	}
 
 	cout << s << endl;
 
