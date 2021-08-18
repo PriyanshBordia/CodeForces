@@ -19,27 +19,54 @@ using namespace std;
 
 void solve()
 {
-	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
 	
-	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
+	ll ans(0), sum(0), cnt(-1), mx(-1), mn(1e18);
 	
 	ll n; cin >> n;
 
 	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
 
-	for (ll i = 0; i < n; i++)
+	for (int i = 0; i < n - 1; i++)
 	{
+		if (!a[i] && a[i + 1])
+		{
+			cnt = i + 1;
+			break;
+		}
 
+		else if (i + 1 == n and a[i] == 0)
+		{
+			cnt = i + 1;
+			break;
+		}
 	}
-	
-	string s; cin >> s;
 
-	for (int i = 0; i < s.size(); i++)
+	if (a[0] == 1)
 	{
+		cout << n + 1 << " ";
 
+		for (int i = 1; i <= n; i++)
+			cout << i << " ";
+		cout << endl;
+		return;
 	}
+
+	if (cnt == -1)
+	{
+		cout << cnt << endl;
+		return;
+	}
+
+	for (int i = 1; i <= cnt; i++)
+		cout << i << " ";
+
+	cout << n + 1 <<  " ";
+
+	for (int i = cnt + 1; i <= n; i++)
+		cout << i << " ";
+
 	
-	pfll(ans);
+	cout << endl;
 
 	return;
 }

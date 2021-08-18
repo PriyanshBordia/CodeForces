@@ -17,51 +17,27 @@ typedef long long ll;
 
 using namespace std;
 
-bool isPerfectSquare(long double x)
-{
-	long double sr = sqrt(x);
-
-	return (sr - floor(sr) == 0);
-} 
-
-
 void solve()
 {
 	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
 	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
 	
-	ll n; cin >> n;
-	
-	if (isPerfectSquare(n))
+	ll a, b, c; cin >> a >> b >> c;
+
+	if ((c > 2 * abs(b - a)) or (a > 2 * abs(a - b)) or (b > 2 * abs(b - a)))
 	{
-		cout << sqrt(n) << " " << "1" << endl;
+		cout << "-1\n";
 		return;
 	}
 
-	ans = ceil(sqrt(n) * 1.0);
+	ans = (c + abs(b - a));
+	cnt = (c - abs(b - a));
 
-	cnt = pow(ans, 2) - pow(floor(sqrt(n) * 1.0), 2);
+	if (ans > 2 * abs(b - a))
+		ans = cnt;
 
-	sum = pow(ans, 2) - cnt / 2;
-
-	ll r = 1, c = 1;
-
-	if (n < sum)
-	{
-		r =  ans - (sum - n);
-		c = ans;
-	}
-
-	else
-	{
-		r = ans;
-		c = ans - (n - sum);
-	}
-
-	// cout << sum << endl;
-	
-	cout << r << " " << c << endl;
+	pfll(ans);
 
 	return;
 }
