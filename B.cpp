@@ -23,20 +23,22 @@ void solve()
 	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
 	
-	ll a, b, c; cin >> a >> b >> c;
+	ll n; cin >> n;
 
-	if ((c > 2 * abs(b - a)) or (a > 2 * abs(a - b)) or (b > 2 * abs(b - a)))
+	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
+
+	for (ll i = 0; i < n; i++)
 	{
-		cout << "-1\n";
-		return;
+
 	}
+	
+	string s; cin >> s;
 
-	ans = (c + abs(b - a));
-	cnt = (c - abs(b - a));
+	for (int i = 0; i < s.size(); i++)
+	{
 
-	if (ans > 2 * abs(b - a))
-		ans = cnt;
-
+	}
+	
 	pfll(ans);
 
 	return;

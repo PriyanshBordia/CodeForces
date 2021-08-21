@@ -17,46 +17,6 @@ typedef long long ll;
 
 using namespace std;
 
-bool isPower(int x)
-{
-	if (x && x << 1 == 0)
-		return true;
-
-	return false;
-}
-
-int dp(string s)
-{
-	if (s.size() == 0)
-		return 1;
-
-	if (s.size() == 1)
-	{
-		if (isPower(stoi(s)))
-			return 0;
-
-		else 
-			return 2;
-	}
-
-	if (isPower(stoi(s)))
-		return 0;
-
-	int cnt = INT_MAX;
-	for (int i = 0; i < s.size(); i++)
-	{
-		string t = s;
-		t.erase(t.begin());
-
-		if (t.size() > 0 and isPower(stoi(t)))
-			break;
-
-		cnt = min(cnt, 1 + dp(t));
-	}
-
-	return cnt;
-}
-
 void solve()
 {
 	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
@@ -65,27 +25,19 @@ void solve()
 	
 	ll n; cin >> n;
 
-	string s = to_string(n);
+	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
 
-	if (isPower(n))
+	for (ll i = 0; i < n; i++)
 	{
-		cout << ans << endl;
-		return;
+
 	}
+	
+	string s; cin >> s;
 
-	ans = dp(s);
+	for (int i = 0; i < s.size(); i++)
+	{
 
-	// for (int i = 0; i < s.size(); i++)
-	// {
-	// 	string t = s;
-
-	// 	t.erase(t.begin() + i);
-
-	// 	if (isPower(stoi(t)))
-	// 		break;
-
-
-	// }
+	}
 	
 	pfll(ans);
 
