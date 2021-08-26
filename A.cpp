@@ -23,23 +23,22 @@ void solve()
 	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
 	
-	ll n; cin >> n;
-
-	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
-
-	for (ll i = 0; i < n; i++)
-	{
-
-	}
+	ll l, r; cin >> l >> r;	
 	
-	string s; cin >> s;
+	if (r == l)
+		ans = 0;
 
-	for (int i = 0; i < s.size(); i++)
+	else if (r / 2 < l)
+		ans = r % l;
+
+	else
 	{
-
+		ans = r % (r / 2 + 1);
+		// ans = r - (r / l - 1) * l;
 	}
-	
-	pfll(ans);
+
+	cout << ans << endl;
+	return;
 
 	return;
 }

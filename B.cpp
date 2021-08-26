@@ -17,29 +17,83 @@ typedef long long ll;
 
 using namespace std;
 
+int isPrime(int x)
+{
+	if (x == 2)
+		return 1;
+
+	else if (x == 1 || x % 2 == 0)
+		return 0;
+	
+	else
+	{
+		for (int i = 3; i <= sqrt(x); i += 2)
+		{
+			if (x % i == 0)
+				return 0;
+		}
+		
+		return 1;
+	}
+}
+
 void solve()
 {
 	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
 	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
 	
-	ll n; cin >> n;
-
-	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
-
-	for (ll i = 0; i < n; i++)
-	{
-
-	}
+	ll k; cin >> k;
 	
 	string s; cin >> s;
 
-	for (int i = 0; i < s.size(); i++)
+	for (int i = 0; i < k; i++)
 	{
-
+		int c = int(s[i] - '0');
+		if (c == 1 or c == 9 or (c % 2 == 0 and c != 2))
+		{
+			cout << 1 << endl;
+			cout << c << endl;
+			return;
+		}
 	}
-	
-	pfll(ans);
+
+	for (int i = 0; i < k; i++)
+	{
+		int c = int(s[i] - '0') * 10;
+		for (int j = i + 1; j < k; j++)
+		{
+			int d = c + (s[j] - '0');
+			if (!isPrime(d))
+			{
+				cout << 2 << endl;
+				cout << d << endl;
+				return;
+			}
+		}
+	}	
+
+	for (int i = 0; i < k; i++)
+	{
+		int c = int(s[i] - '0') * 100;
+		for (int j = i + 1; j < k; j++)
+		{
+			int d = (c + (s[j] - '0')) * 10;
+
+			for (int z = j + 1; z < k; z++)
+			{
+				int e = d + (s[z] - '0');
+				if (!isPrime(e))
+				{
+					cout << 3 << endl;
+					cout << d << endl;
+					return;
+				}
+			}
+		}
+	}	
+
+	// cout << 0 << endl << endl;
 
 	return;
 }

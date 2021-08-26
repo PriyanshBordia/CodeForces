@@ -19,27 +19,79 @@ using namespace std;
 
 void solve()
 {
-	vector<ll> v;	set<ll> st;		map<ll, ll> mp;
+	ll ans(0), sum(0), mx(-1), mn(1e18);
 	
-	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
-	
-	ll n; cin >> n;
+	ll n, q; cin >> n >> q;
 
-	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
-
-	for (ll i = 0; i < n; i++)
-	{
-
-	}
-	
 	string s; cin >> s;
 
-	for (int i = 0; i < s.size(); i++)
-	{
+	vector<ll> cnt(n + 2, 0);
 
+	cnt[0] = 0;
+	// for (ll i = 1; i <= n; i++)
+	// {
+	// 	if (s[i - 1] == '+')
+	// 		cnt[i] = cnt[i - 1] + 1;
+	// 	else
+	// 		cnt[i] = cnt[i - 1] - 1;
+	// }
+
+	for (ll i = 1; i <= n; i++)
+	{
+		cnt[i] = cnt[i - 1];
+
+		if (s[i - 1] == '+')
+			cnt[i] += (i & 1) ? 1 : -1;
+
+		else
+			cnt[i] += (i & 1) ? -1 : 1;
 	}
-	
-	pfll(ans);
+
+	while (q--)
+	{
+		ll l, r; cin >> l >> r;
+
+		if ((cnt[r] - cnt[l - 1]) < 0)
+		{
+			for (int i = r; ans > 0 and i >= l; i--)
+			{
+				if (s[i - 1] == '-')
+				{
+					// cout << i << " ";
+					for(int j = i + 1; j < cnt.size(); j++)
+						cnt[j]++;
+
+					cnt.erase(cnt.begin() + i);
+					s.erase(s.begin() + i - 1);
+					ans--;
+				}
+			}
+
+			cout << s << endl;
+		}
+
+		if ((cnt[r] - cnt[l - 1]) > 0)
+		{
+			for (int i = r; ans > 0 and i >= l; i--)
+			{
+				if (s[i - 1] == '+')
+				{
+					// cout << i << " ";
+					for(int j = i + 1; j < cnt.size(); j++)
+						cnt[j]--;
+
+					cnt.erase(cnt.begin() + i);
+					s.erase(s.begin() + i - 1);
+					ans--;
+				}
+			}
+			cout << s << endl;
+		}
+
+		ans = abs(cnt[r] - cnt[l - 1]);
+
+		cout << ans << endl;
+	}
 
 	return;
 }
