@@ -23,156 +23,38 @@ void solve()
 	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
 	
-	ll n; cin >> n;
+	ll a, b; cin >> a >> b;
 
-	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
+	cnt = a;
 
-	for (ll i = 0; i < n; i++)
+	ans = 0;
+
+	for (int i = 1; i < a; i++)
 	{
-		if (a[i] & 1)
-			cnt++;
-		else
-			cnt--;
+		ans = ans ^ i;
 	}
 
-	if (abs(cnt) > 1)
-		ans = -1;
-
-	else 
-	{
-		for (int i = 0; i < n; i++)
+	if (ans != b)
+	{		
+		for (int i = a + 1; i < 1000000; i++)
 		{
-			if (a[i] & 1)
+			if ((ans ^ i) == b)
 			{
-				if (i - 1 >= 0 and a[i - 1] & 1 and i + 1 < n and a[i + 1] & 1)
-				{
-					int j =  i + 1;
-					while (j < n and a[j] & 1)
-						j++;
-
-					if (j < n)
-					{
-						ans += (j - i);
-						swap(a[i], a[j]);
-					}
-
-					else
-					{
-						cout << "-1" << endl;
-						return;
-					}
-				}
-
-				else if (i - 1 >= 0 and a[i - 1] & 1 and i + 1 < n)
-				{
-					swap(a[i], a[i + 1]);
-					ans++;
-				}
-
+				cnt++;
+				ans = ans ^ i;
+				break;
 			}
-			
-			else
-			{
-				if (i - 1 >= 0 and a[i - 1] % 2 == 0 and i + 1 < n and a[i + 1] % 2 == 0)
-				{
-					int j = i + 1;
-					while (j < n and a[j] % 2 == 0)
-						j++;
-
-					if (j < n)
-					{
-						ans += (j - i);
-						swap(a[i], a[j]);
-					}
-
-					else
-					{
-						cout << "-1" << endl;
-						return;
-					}
-				}
-
-				else if (i - 1 >= 0 and a[i - 1] % 2 == 0 and i + 1 < n)
-				{
-					swap(a[i], a[i + 1]);
-					ans++;
-				}
-			}
-			// cout << i << " " << ans << endl;
-
 		}
 
-		for (int i = n - 1; i >= 0; i--)
-		{
-			if (a[i] & 1)
-			{
-				if (i - 1 >= 0 and a[i - 1] & 1 and i + 1 < n and a[i + 1] & 1)
-				{
-					int j =  i  - 1;
-					while (j >= 0 and a[j] & 1)
-						j--;
-
-					if (j >= 0)
-					{
-						cnt += abs(j - i);
-						swap(a[i], a[j]);
-					}
-
-					else
-					{
-						cout << "-1" << endl;
-						return;
-					}
-				}
-
-				else if (i + 1 < n and a[i + 1] & 1 and i - 1 >= 0)
-				{
-					swap(a[i], a[i - 1]);
-					cnt++;
-				}
-			}
-			
-			else
-			{
-				if (i - 1 >= 0 and a[i - 1] % 2 == 0 and i + 1 < n and a[i + 1] % 2 == 0)
-				{
-					int j = i - 1;
-					while (j >= 0 and a[j] % 2 == 0)
-						j--;
-
-					if (j >= 0)
-					{
-						cnt += (j - i);
-						swap(a[i], a[j]);
-					}
-
-					else
-					{
-						cout << "-1" << endl;
-						return;
-					}
-				}
-
-				else if (i + 1 < n and a[i + 1] % 2 == 0 and i - 1 >= 0)
-				{
-					swap(a[i], a[i - 1]);
-					cnt++;
-				}
-			}
-		}
+		if (ans != b)
+			cnt += 2;
 	}
-	
-	if (ans == 0)
-		ans = cnt;
-	else if (cnt == 0);
 
-	else
-		ans = min(ans, cnt);
-
-	pfll(ans);
+	cout << cnt << endl;
 
 	return;
 }
+
 
 int main()
 {
@@ -182,4 +64,4 @@ int main()
 		solve();
 
 	return 0;
-} 
+}

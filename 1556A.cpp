@@ -23,19 +23,23 @@ void solve()
 	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
 	
-	ll n; cin >> n;
+	ll c, d; cin >> c >> d;
 
-	string s; cin >> s;
+	if (c == 0 and d == 0)
+		ans = 0;
 
-	for (int i = 0; i < s.size(); i++)
+	else if ((d - c) & 1)
+		ans = -1;
+
+	else
 	{
-		if (s[i] == 'U')
-			s[i] = 'D';
-		else if (s[i] == 'D')
-			s[i] = 'U';
+		if (c == d)
+			ans = 1;
+		else
+			ans = 2;
 	}
 	
-	cout << s << endl;
+	pfll(ans);
 
 	return;
 }
