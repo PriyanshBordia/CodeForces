@@ -27,17 +27,15 @@ void solve()
 
 	string s; cin >> s;
 
-	for (int i = 1; i < s.size(); i++)
+	for (int i = 0; i < s.size(); i++)
 	{
-		if (s[i] != s[i - 1])
-		{
-			cout << i << " " << i + 1 << endl;
-			return;
-		}
-
+		if (s[i] == 'U')
+			s[i] = 'D';
+		else if (s[i] == 'D')
+			s[i] = 'U';
 	}
 	
-	cout << -1 << " " << -1 << endl;
+	cout << s << endl;
 
 	return;
 }

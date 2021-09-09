@@ -23,24 +23,38 @@ void solve()
 	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
 	
-	ll n; cin >> n;
+	ll a, b; cin >> a >> b;
 
-	string s; cin >> s;
+	cnt = a;
 
-	for (int i = 1; i < s.size(); i++)
+	ans = 0;
+
+	for (int i = 1; i < a; i++)
 	{
-		if (s[i] != s[i - 1])
+		ans = ans ^ i;
+	}
+
+	if (ans != b)
+	{		
+		for (int i = a + 1; i < 1000000; i++)
 		{
-			cout << i << " " << i + 1 << endl;
-			return;
+			if ((ans ^ i) == b)
+			{
+				cnt++;
+				ans = ans ^ i;
+				break;
+			}
 		}
 
+		if (ans != b)
+			cnt += 2;
 	}
-	
-	cout << -1 << " " << -1 << endl;
+
+	cout << cnt << endl;
 
 	return;
 }
+
 
 int main()
 {

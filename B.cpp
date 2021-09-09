@@ -23,38 +23,101 @@ void solve()
 	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
 	
-	ll a, b; cin >> a >> b;
+	ll n; cin >> n;
 
-	cnt = a;
+	string s; cin >> s;
 
-	ans = 0;
-
-	for (int i = 1; i < a; i++)
-	{
-		ans = ans ^ i;
-	}
-
-	if (ans != b)
-	{		
-		for (int i = a + 1; i < 1000000; i++)
+	char ch[n][n];
+	for (int i = 0; i < n; i++)
+		for (int j = 0; j < n; j++)
 		{
-			if ((ans ^ i) == b)
+			if (i == j)
+				ch[i][j] = 'X';
+			else
+				ch[i][j] = '.';
+		}
+
+	for (int i = 0; i < n; i++)
+	{
+		if (s[i] == '1')
+		{
+			for (int j = 0; j < n; j++)
 			{
-				cnt++;
-				ans = ans ^ i;
-				break;
+				if (i == j)
+					ch[i][j] = 'X';
+				
+				else if (ch[i][j] == '.' and ch[j][i] == '.')
+				{
+					ch[i][j] = '=';
+					ch[j][i] = '=';
+				}
+
+				else if ((ch[i][j] == '+' and ch[j][i] == '-') or (ch[i][j] == '=' and ch[j][i] == '='));
+
+				else
+				{
+					no;
+					return;
+				}
 			}
 		}
 
-		if (ans != b)
-			cnt += 2;
-	}
+		else
+		{
+			bool flag = false;
+			for (int j = 0; j < n; j++)
+			{
+				if (ch[i][j] == '+')
+				{
+					flag = true;
+					break;
+				}
+			}
 
-	cout << cnt << endl;
+			if (flag)
+				continue;
+
+			for (int j = 0; j < n; j++)
+			{
+				if (i == j)
+					ch[i][j] = 'X';
+
+				else if (ch[i][j] == '.' and ch[j][i] == '.' and s[j] != '1') 
+				{
+					ch[i][j] = '+';
+					ch[j][i] = '-';
+					flag = true;
+					break;
+				}
+			}
+
+			if (!flag)
+			{
+				no;
+				return;
+			}
+		}
+	}
+	
+	yes;
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			if (ch[i][j] == '.') 
+			{
+				ch[i][j] = '='; ch[j][i] = '=';
+			}
+
+			cout << ch[i][j];
+		}
+
+		cout << endl;
+	}
 
 	return;
 }
-
 
 int main()
 {
