@@ -15,8 +15,6 @@ typedef long long ll;
 #define no printf("NO\n")
 #define pb(x) push_back(x)
 
-#define MOD 998244353;
-
 using namespace std;
 
 void solve()
@@ -34,10 +32,13 @@ void solve()
 
 	}
 	
-// 1 1 1 1
-// 0 1 1 1
-// 0 1 1 1
-// 0 0 0 1
+	string s; cin >> s;
+
+	for (int i = 0; i < s.size(); i++)
+	{
+
+	}
+	
 	pfll(ans);
 
 	return;

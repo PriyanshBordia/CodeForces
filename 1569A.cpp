@@ -25,21 +25,19 @@ void solve()
 	
 	ll n; cin >> n;
 
-	ll a[n]; for (int i = 0; i < n; i++) cin >> a[i];
-
-	for (ll i = 0; i < n; i++)
-	{
-
-	}
-	
 	string s; cin >> s;
 
-	for (int i = 0; i < s.size(); i++)
+	for (int i = 1; i < s.size(); i++)
 	{
+		if (s[i] != s[i - 1])
+		{
+			cout << i << " " << i + 1 << endl;
+			return;
+		}
 
 	}
 	
-	pfll(ans);
+	cout << -1 << " " << -1 << endl;
 
 	return;
 }

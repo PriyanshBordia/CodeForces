@@ -23,21 +23,29 @@ void solve()
 	
 	ll ans(0), sum(0), cnt(0), mx(-1), mn(1e18);
 	
-	ll n; cin >> n;
+	ll n, s; cin >> n >> s;
 
-	string s; cin >> s;
-
-	for (int i = 1; i < s.size(); i++)
+	for (int i = 0; i < n; i++)
 	{
-		if (s[i] != s[i - 1])
+		if ((sum + i) < s)
 		{
-			cout << i << " " << i + 1 << endl;
-			return;
+			sum += i;
+			v.push_back(i);
 		}
 
+		else
+			break;
 	}
+
+	cnt = n - v.size();
+
+	if (x )
+		
+	sort(v.begin(), v.end());
+
+	ans = v[n / 2];
 	
-	cout << -1 << " " << -1 << endl;
+	pfll(ans);
 
 	return;
 }
